@@ -415,3 +415,89 @@
         .empty-state p {
             opacity: 0.8;
         }
+
+
+/* Toggle switch styling */
+.theme-toggle {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.theme-toggle input[type="checkbox"] {
+    display: none;
+}
+
+.toggle-label {
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: #333;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.toggle-label .fa-moon {
+    display: none;
+}
+
+body.dark-mode .toggle-label .fa-sun {
+    display: none;
+}
+
+body.dark-mode .toggle-label .fa-moon {
+    display: inline;
+}
+
+/* Dark mode styles */
+body.dark-mode {
+    background: #121212;
+    color: #e0e0e0;
+}
+
+body.dark-mode .header {
+    background: rgba(18, 18, 18, 0.95);
+    border-bottom: 1px solid #333;
+}
+
+body.dark-mode .nav-link {
+    color: #e0e0e0;
+}
+
+body.dark-mode .nav-link:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .btn-primary,
+body.dark-mode .btn-secondary {
+    background: #333;
+    color: #fff;
+    border-color: #555;
+}
+
+body.dark-mode .btn-primary:hover,
+body.dark-mode .btn-secondary:hover {
+    background: #555;
+}
+
+body.dark-mode .filters,
+body.dark-mode .project-card {
+    background: #1e1e1e;
+    color: #e0e0e0;
+    border: 1px solid #333;
+}
+
+body.dark-mode .project-title,
+body.dark-mode .repo-link {
+    color: #e0e0e0;
+}
+
+body.dark-mode .section-title,
+body.dark-mode .empty-state,
+body.dark-mode .footer {
+    color: #e0e0e0;
+}
+
+body.dark-mode .footer {
+    background: #0d0d0d;
+}
