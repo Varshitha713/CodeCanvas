@@ -215,3 +215,4 @@ const sampleProjects = [
 
         // Start the app
         document.addEventListener('DOMContentLoaded', init);
+        
