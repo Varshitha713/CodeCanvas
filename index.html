@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="layers.ico">
 
     </head>
     <body>
@@ -121,40 +122,6 @@
         </div>
     </section>
     
-    <!-- Animation CSS -->
-    <style>
-    @keyframes bounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-5px); }
-    }
-    </style>
-    
-    <!-- JavaScript Validation -->
-    <script>
-    function validateForm() {
-        const name = document.getElementById("name").value.trim();
-        const email = document.getElementById("email").value.trim();
-        const message = document.getElementById("message").value.trim();
-    
-        if (!name || !email || !message) {
-            alert("Please fill in all fields.");
-            return false;
-        }
-    
-        const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
-        if (!email.match(emailPattern)) {
-            alert("Please enter a valid email.");
-            return false;
-        }
-    
-        document.getElementById("form-status").style.display = "block";
-        return false; // Prevent actual submission
-    }
-    </script>
-    
-      
-
-
 
     </main>
 
@@ -165,29 +132,4 @@
         </div>
     </footer>
     <script src="script.js"></script>
-    <script>
-    const toggle = document.getElementById('darkModeToggle');
-    const body = document.body;
-    const icon = document.getElementById('themeIcon');
-
-    // Load preference
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'dark') {
-        body.classList.add('dark-theme');
-        icon.textContent = '☀️'; // Sun in dark mode
-    } else {
-        icon.textContent = '🌙'; // Moon in light mode
-    }
-
-    toggle.addEventListener('click', () => {
-        body.classList.toggle('dark-theme');
-        const theme = body.classList.contains('dark-theme') ? 'dark' : 'light';
-        localStorage.setItem('theme', theme);
-
-        // Update icon
-        icon.textContent = theme === 'dark' ? '☀️' : '🌙';
-    });
-</script>
-
-
   </body>
