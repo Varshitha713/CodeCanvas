@@ -16,21 +16,24 @@
         <div class="container">
             <div class="header-content">
                 <div class="logo">CodeCanvas</div>
-                <nav class="nav">
-                    <a href="#" class="nav-link">Home</a>
-                    <a href="#" class="nav-link">Browse</a>
-                    <a href="#" class="nav-link">Submit</a>
-                    <a href="#" class="nav-link">About</a>
-                    <a href="#contact" class="nav-link">Contact Us</a>
-
-                    <a href="https://github.com/yourusername/codecanvas" class="btn-primary" target="_blank">
+                <div class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false" aria-controls="navMenu">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <div class="nav-container" id="navContainer">
+                    <nav class="nav" id="navMenu">
+                        <a href="#" class="nav-link">Home</a>
+                        <a href="#" class="nav-link">Browse</a>
+                        <a href="#" class="nav-link">Submit</a>
+                        <a href="#" class="nav-link">About</a>
+                        <a href="#contact" class="nav-link">Contact Us</a>
+                        <a href="https://github.com/yourusername/codecanvas" class="btn-primary" target="_blank">
                         <i class="fab fa-github"></i> GitHub
-                    </a>
-                    <button class="theme-toggle" id="darkModeToggle" aria-label="Toggle Theme">
+                        </a>
+                        <button class="theme-toggle" id="darkModeToggle" aria-label="Toggle Theme">
                         <span id="themeIcon">🌙</span>
-                    </button>
-
-                </nav>
+                        </button>
+                    </nav>
+                </div>
             </div>
         </div>
     </header>
