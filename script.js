@@ -66,8 +66,21 @@ const sampleProjects = [
                 previewImage: 'assets/Expense-Tracker-Preview.png',
                 tags: ['HTML', 'CSS', 'JavaScript', 'Responsive']
             }
-
+{
+        id: 6,
+        title: 'Cat-A-List',
+        description: 'Cat-a-List is a fun and functional task management web app designed with cat lovers in mind!',
+        repoUrl: 'https://github.com/ipshitabhardwaj/Cat-a-List',
+        demoUrl: 'https://ipshitabhardwaj.github.io/Cat-a-List/landing.html',
+        difficulty: 'intermediate',
+        upvotes: 0,
+        hasDemo: true,
+        hasReadme: true,
+        previewImage: 'https://raw.githubusercontent.com/ipshitabhardwaj/Cat-a-List/main/cat-background.jpg',
+        tags: ['HTML', 'CSS', 'JavaScript']
+    } 
         ];
+        
 
         // Store the current projects array
         let currentProjects = [...sampleProjects];
