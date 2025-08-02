@@ -215,3 +215,45 @@ const sampleProjects = [
 
         // Start the app
         document.addEventListener('DOMContentLoaded', init);
+
+        function validateForm() {
+        const name = document.getElementById("name").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const message = document.getElementById("message").value.trim();
+    
+        if (!name || !email || !message) {
+            alert("Please fill in all fields.");
+            return false;
+        }
+    
+        const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+        if (!email.match(emailPattern)) {
+            alert("Please enter a valid email.");
+            return false;
+        }
+    
+        document.getElementById("form-status").style.display = "block";
+        return false; // Prevent actual submission
+    }
+
+    const toggle = document.getElementById('darkModeToggle');
+    const body = document.body;
+    const icon = document.getElementById('themeIcon');
+
+    // Load preference
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+        body.classList.add('dark-theme');
+        icon.textContent = '☀️'; // Sun in dark mode
+    } else {
+        icon.textContent = '🌙'; // Moon in light mode
+    }
+
+    toggle.addEventListener('click', () => {
+        body.classList.toggle('dark-theme');
+        const theme = body.classList.contains('dark-theme') ? 'dark' : 'light';
+        localStorage.setItem('theme', theme);
+
+        // Update icon
+        icon.textContent = theme === 'dark' ? '☀️' : '🌙';
+    });

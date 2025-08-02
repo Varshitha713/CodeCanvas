@@ -496,6 +496,7 @@
         .empty-state p {
             opacity: 0.8;
         }
+
         .footer {
   background: #0d0d0d;
   color: #fff;
@@ -517,3 +518,9 @@
 .footer .social-links a:hover {
   color: #ff4da6;
 }
+
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
+    }
