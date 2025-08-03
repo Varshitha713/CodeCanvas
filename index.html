@@ -97,8 +97,38 @@
             </div>
         </section>
 
-        <!-- Developer Reviews Section -->
-        <section class="reviews-section" id="reviews" style="padding: 80px 0; background-color: #f9f9f9;">
+
+
+<!-- About Us Section with Image -->
+<section id="about" class="about-section">
+    <div class="about-container">
+      
+      <!-- Left Column: Image -->
+      <div class="about-image">
+        <img src="/image.jpg" alt="CodeCanvas Illustration" />
+      </div>
+  
+      <!-- Right Column: Text -->
+      <div class="about-text">
+        <h2>
+          <i class="fas fa-paint-brush"></i> About CodeCanvas
+        </h2>
+        <p>
+          <strong>CodeCanvas</strong> is your creative playground to discover, share, and be inspired by beautiful front-end projects from around the world. Whether you're a beginner or a seasoned developer, our open community lets you showcase your designs, learn from others, and grow together. Built with love using HTML, CSS, and JavaScript, CodeCanvas is an open-source platform dedicated to collaboration, innovation, and growth.
+          <br><br>
+          With features like project discovery, easy submissions, tagging, and upcoming enhancements like user profiles and reviews, we aim to make front-end development more fun, accessible, and interactive. Join us and become part of a global movement to inspire and be inspired!
+        </p>
+      </div>
+  
+    </div>
+  </section>
+  
+  
+  <!--Font Awesome for icons-->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  
+         <!-- Developer Reviews Section -->
+         <section class="reviews-section" id="reviews" style="padding: 80px 0; background-color: #f9f9f9;">
             <div class="container" style="max-width: 1100px; margin: 0 auto;">
                 <h2 class="section-title" style="text-align: center; font-size: 3rem; font-weight: bold; margin-bottom: 50px;color:#4b0082;">Developer Reviews</h2>
                 <div class="reviews-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px;">
@@ -130,34 +160,75 @@
                 </div>
             </div>
         </section>
+      <!--Contact us form-->
+      <section class="contact-section" id="contact" style="padding: 80px 0;  color: white;">
+        <div class="container" style="max-width: 1000px; margin: 0 auto; padding: 30px;">
+            <h2 class="section-title" style="font-size: 3rem; text-align: center; margin-bottom: 50px; font-weight: bold;">Contact Us</h2>
+    
+            <form id="contact-form" onsubmit="return validateForm()" style="display: flex; flex-direction: column; gap: 25px;">
+                
+                <div style="position: relative;">
+                    <i class="fas fa-user" style="position: absolute; top: 16px; left: 16px; color: #ccc; font-size: 1.4rem; animation: bounce 2s infinite;"></i>
+                    <input type="text" id="name" placeholder="Your Name" required 
+                           style="padding: 18px 18px 18px 50px; font-size: 1.2rem; width: 100%; border: none; border-radius: 8px;">
+                </div>
+    
+                <div style="position: relative;">
+                    <i class="fas fa-envelope" style="position: absolute; top: 16px; left: 16px; color: #ccc; font-size: 1.4rem; animation: bounce 2s infinite;"></i>
+                    <input type="email" id="email" placeholder="Your Email" required 
+                           style="padding: 18px 18px 18px 50px; font-size: 1.2rem; width: 100%; border: none; border-radius: 8px;">
+                </div>
+    
+                <div style="position: relative;">
+                    <i class="fas fa-comment-dots" style="position: absolute; top: 16px; left: 16px; color: #ccc; font-size: 1.4rem; animation: bounce 2s infinite;"></i>
+                    <textarea id="message" rows="6" placeholder="Your Message" required 
+                              style="padding: 18px 18px 18px 50px; font-size: 1.2rem; width: 100%; border: none; border-radius: 8px;"></textarea>
+                </div>
+    
+                <button type="submit" style="padding: 16px; background-color: #ffffff; color: #4b0082; border: none; border-radius: 8px; font-size: 1.2rem; font-weight: bold; cursor: pointer;">
+                    <i class="fas fa-paper-plane"></i> Send Message
+                </button>
+            </form>
+    
+            <div id="form-status" style="text-align: center; margin-top: 30px; font-size: 1.2rem; display: none;">✅ Message sent successfully!</div>
+        </div>
+    </section>
+    
+    <!-- Animation CSS -->
+    <style>
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
+    }
+    </style>
+    
+    <!-- JavaScript Validation -->
+    <script>
+    function validateForm() {
+        const name = document.getElementById("name").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const message = document.getElementById("message").value.trim();
+    
+        if (!name || !email || !message) {
+            alert("Please fill in all fields.");
+            return false;
+        }
+    
+        const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+        if (!email.match(emailPattern)) {
+            alert("Please enter a valid email.");
+            return false;
+        }
+    
+        document.getElementById("form-status").style.display = "block";
+        return false; // Prevent actual submission
+    }
+    </script>
+    
+      
 
-        <!-- Contact Us Section -->
-        <section class="contact-section" id="contact" style="padding: 80px 0;  color: white;">
-            <div class="container" style="max-width: 1000px; margin: 0 auto; padding: 30px;">
-                <h2 class="section-title" style="font-size: 3rem; text-align: center; margin-bottom: 50px; font-weight: bold;">Contact Us</h2>
-                <form id="contact-form" onsubmit="return validateForm()" style="display: flex; flex-direction: column; gap: 25px;">
-                    <div style="position: relative;">
-                        <i class="fas fa-user" style="position: absolute; top: 16px; left: 16px; color: #ccc; font-size: 1.4rem; animation: bounce 2s infinite;"></i>
-                        <input type="text" id="name" placeholder="Your Name" required 
-                            style="padding: 18px 18px 18px 50px; font-size: 1.2rem; width: 100%; border: none; border-radius: 8px;">
-                    </div>
-                    <div style="position: relative;">
-                        <i class="fas fa-envelope" style="position: absolute; top: 16px; left: 16px; color: #ccc; font-size: 1.4rem; animation: bounce 2s infinite;"></i>
-                        <input type="email" id="email" placeholder="Your Email" required 
-                            style="padding: 18px 18px 18px 50px; font-size: 1.2rem; width: 100%; border: none; border-radius: 8px;">
-                    </div>
-                    <div style="position: relative;">
-                        <i class="fas fa-comment-dots" style="position: absolute; top: 16px; left: 16px; color: #ccc; font-size: 1.4rem; animation: bounce 2s infinite;"></i>
-                        <textarea id="message" rows="6" placeholder="Your Message" required 
-                            style="padding: 18px 18px 18px 50px; font-size: 1.2rem; width: 100%; border: none; border-radius: 8px;"></textarea>
-                    </div>
-                    <button type="submit" style="padding: 16px; background-color: #ffffff; color: #4b0082; border: none; border-radius: 8px; font-size: 1.2rem; font-weight: bold; cursor: pointer;">
-                        <i class="fas fa-paper-plane"></i> Send Message
-                    </button>
-                </form>
-                <div id="form-status" style="text-align: center; margin-top: 30px; font-size: 1.2rem; display: none;">✅ Message sent successfully!</div>
-            </div>
-        </section>
+
+
     </main>
 
     <footer class="footer">
