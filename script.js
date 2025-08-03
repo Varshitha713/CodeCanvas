@@ -20,7 +20,7 @@ const sampleProjects = [
                 description: 'A responsive weather application with beautiful animations and detailed forecasts. Features location-based weather data and interactive charts.',
                 repoUrl: 'https://github.com/example/weather-dashboard',
                 demoUrl: 'https://example.github.io/weather-dashboard/',
-                difficulty: 'intermediate',
+                difficulty: 'Intermediate',
                 upvotes: 28,
                 hasDemo: true,
                 hasReadme: true,
@@ -52,7 +52,33 @@ const sampleProjects = [
                 hasReadme: true,
                 previewImage: null,
                 tags: ['HTML', 'CSS', 'JavaScript', 'Responsive']
-            }
+            },
+            {
+                id: 5,
+                title: 'Expense Tracker App',
+                description: 'A simple and intuitive expense tracker app to monitor daily spending, manage budgets, and gain financial insights.',
+                repoUrl: 'https://github.com/DineshPabboju/Expense-Tracker-App',
+                demoUrl: 'https://expense-tracker-app-04.netlify.app/',
+                difficulty: 'Intermediate',
+                upvotes: 21,
+                hasDemo: true,
+                hasReadme: false,
+                previewImage: 'assets/Expense-Tracker-Preview.png',
+                tags: ['HTML', 'CSS', 'JavaScript', 'Responsive']
+            },
+            {
+                id: 6,
+                title: "IMDb Clone",
+                description: 'A responsive IMDb clone showcasing popular movies with detailed info using TMDb API and modern frontend technologies.',
+                repoUrl: "https://github.com/Jils31/IMDB-clone",
+                demoUrl: "https://imdb-clone-seven-virid.vercel.app/",
+                difficulty: "intermediate",
+                upvotes: 21,
+                hasDemo: true,
+                hasReadme: true,
+                previewImage: "assets/image.png",
+                tags: ["REACT", "Tailwind CSS", "Responsive", "React-Router DOM"],
+            },
         ];
 
         // Store the current projects array
@@ -67,6 +93,8 @@ const sampleProjects = [
         const hasReadmeFilter = document.getElementById('has-readme');
         const applyFiltersBtn = document.getElementById('apply-filters');
         const resetFiltersBtn = document.getElementById('reset-filters');
+        const searchInput = document.getElementById('search-input');
+        const clearSearchBtn = document.getElementById('clear-search');
 
         // Initialize the app
         function init() {
@@ -87,6 +115,10 @@ const sampleProjects = [
         function setupEventListeners() {
             applyFiltersBtn.addEventListener('click', applyFilters);
             resetFiltersBtn.addEventListener('click', resetFilters);
+            
+            // Search functionality
+            searchInput.addEventListener('input', handleSearch);
+            clearSearchBtn.addEventListener('click', clearSearch);
             
             // Smooth scroll for explore button
             document.querySelector('a[href="#projects"]').addEventListener('click', (e) => {
@@ -186,6 +218,17 @@ const sampleProjects = [
             const difficulty = difficultyFilter.value;
             const needsDemo = hasDemoFilter.checked;
             const needsReadme = hasReadmeFilter.checked;
+            const searchTerm = searchInput.value.toLowerCase().trim();
+
+            // Apply search filter
+            if (searchTerm) {
+                filtered = filtered.filter(project => {
+                    const titleMatch = project.title.toLowerCase().includes(searchTerm);
+                    const descriptionMatch = project.description.toLowerCase().includes(searchTerm);
+                    const tagsMatch = project.tags.some(tag => tag.toLowerCase().includes(searchTerm));
+                    return titleMatch || descriptionMatch || tagsMatch;
+                });
+            }
 
             if (difficulty !== 'all') {
                 filtered = filtered.filter(p => p.difficulty === difficulty);
@@ -202,11 +245,43 @@ const sampleProjects = [
             return filtered;
         }
 
+        // Handle search input with debounce
+        let searchTimeout;
+        function handleSearch() {
+            const searchTerm = searchInput.value.trim();
+            
+            // Show/hide clear button
+            if (searchTerm) {
+                clearSearchBtn.style.display = 'flex';
+            } else {
+                clearSearchBtn.style.display = 'none';
+            }
+            
+            // Clear previous timeout
+            clearTimeout(searchTimeout);
+            
+            // Debounce search to improve performance
+            searchTimeout = setTimeout(() => {
+                const filteredProjects = applyCurrentFilters();
+                renderProjects(filteredProjects);
+            }, 300);
+        }
+
+        // Clear search
+        function clearSearch() {
+            searchInput.value = '';
+            clearSearchBtn.style.display = 'none';
+            const filteredProjects = applyCurrentFilters();
+            renderProjects(filteredProjects);
+        }
+
         // Reset filters
         function resetFilters() {
             difficultyFilter.value = 'all';
             hasDemoFilter.checked = false;
             hasReadmeFilter.checked = false;
+            searchInput.value = '';
+            clearSearchBtn.style.display = 'none';
             renderProjects(sampleProjects);
         }
 
@@ -215,3 +290,45 @@ const sampleProjects = [
 
         // Start the app
         document.addEventListener('DOMContentLoaded', init);
+
+        function validateForm() {
+        const name = document.getElementById("name").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const message = document.getElementById("message").value.trim();
+    
+        if (!name || !email || !message) {
+            alert("Please fill in all fields.");
+            return false;
+        }
+    
+        const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+        if (!email.match(emailPattern)) {
+            alert("Please enter a valid email.");
+            return false;
+        }
+    
+        document.getElementById("form-status").style.display = "block";
+        return false; // Prevent actual submission
+    }
+
+    const toggle = document.getElementById('darkModeToggle');
+    const body = document.body;
+    const icon = document.getElementById('themeIcon');
+
+    // Load preference
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+        body.classList.add('dark-theme');
+        icon.textContent = '☀️'; // Sun in dark mode
+    } else {
+        icon.textContent = '🌙'; // Moon in light mode
+    }
+
+    toggle.addEventListener('click', () => {
+        body.classList.toggle('dark-theme');
+        const theme = body.classList.contains('dark-theme') ? 'dark' : 'light';
+        localStorage.setItem('theme', theme);
+
+        // Update icon
+        icon.textContent = theme === 'dark' ? '☀️' : '🌙';
+    });

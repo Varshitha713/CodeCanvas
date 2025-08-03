@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,29 +8,35 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 
     </head>
     <body>
+
+</head>
+<body>
+
     <header class="header">
         <div class="container">
             <div class="header-content">
                 <div class="logo">CodeCanvas</div>
                 <nav class="nav">
                     <a href="#" class="nav-link">Home</a>
-                    <a href="#" class="nav-link">Browse</a>
-                    <a href="#" class="nav-link">Submit</a>
-                    <a href="#" class="nav-link">About</a>
-                    <a href="#contact" class="nav-link">Contact Us</a>
 
-                    <a href="https://github.com/yourusername/codecanvas" class="btn-primary" target="_blank">
-                        <i class="fab fa-github"></i> GitHub
+                    <a href="#browse"class="nav-link">Browse</a>
+                    <a href="#submit" class="nav-link">Submit</a>
+                    <a href="#about" class="nav-link">About</a>
+                    <a href="#reviews" class="nav-link">Reviews</a>
+                    <a href="#contact" class="nav-link">Contact Us</a>
+                    <a href="https://github.com/Varshitha713/CodeCanvas" class="btn-primary" target="_blank">
+
+                    <i class="fab fa-github"></i> GitHub
                     </a>
                     <button class="theme-toggle" id="darkModeToggle" aria-label="Toggle Theme">
                         <span id="themeIcon">🌙</span>
                     </button>
-
                 </nav>
             </div>
         </div>
@@ -46,10 +51,20 @@
             </div>
         </section>
 
-        <section class="container">
-            <div class="filters">
+        <section class="container"id="browse">
+            <div class="filters" >
                 <h2><i class="fas fa-filter"></i> Filter Projects</h2>
                 <div class="filter-controls">
+                    <div class="filter-group search-group">
+                        <label for="search-input">Search:</label>
+                        <div class="search-container">
+                            <i class="fas fa-search search-icon"></i>
+                            <input type="text" id="search-input" placeholder="Search projects by title, description, or tags...">
+                            <button class="clear-search" id="clear-search" style="display: none;">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                    </div>
                     <div class="filter-group">
                         <label for="difficulty">Difficulty:</label>
                         <select id="difficulty">
@@ -89,75 +104,68 @@
                 </div>
             </div>
         </section>
-      <!--Contact us form-->
-      <section class="contact-section" id="contact" style="padding: 80px 0;  color: white;">
-        <div class="container" style="max-width: 1000px; margin: 0 auto; padding: 30px;">
-            <h2 class="section-title" style="font-size: 3rem; text-align: center; margin-bottom: 50px; font-weight: bold;">Contact Us</h2>
-    
-            <form id="contact-form" onsubmit="return validateForm()" style="display: flex; flex-direction: column; gap: 25px;">
-                
-                <div style="position: relative;">
-                    <i class="fas fa-user" style="position: absolute; top: 16px; left: 16px; color: #ccc; font-size: 1.4rem; animation: bounce 2s infinite;"></i>
-                    <input type="text" id="name" placeholder="Your Name" required 
-                           style="padding: 18px 18px 18px 50px; font-size: 1.2rem; width: 100%; border: none; border-radius: 8px;">
-                </div>
-    
-                <div style="position: relative;">
-                    <i class="fas fa-envelope" style="position: absolute; top: 16px; left: 16px; color: #ccc; font-size: 1.4rem; animation: bounce 2s infinite;"></i>
-                    <input type="email" id="email" placeholder="Your Email" required 
-                           style="padding: 18px 18px 18px 50px; font-size: 1.2rem; width: 100%; border: none; border-radius: 8px;">
-                </div>
-    
-                <div style="position: relative;">
-                    <i class="fas fa-comment-dots" style="position: absolute; top: 16px; left: 16px; color: #ccc; font-size: 1.4rem; animation: bounce 2s infinite;"></i>
-                    <textarea id="message" rows="6" placeholder="Your Message" required 
-                              style="padding: 18px 18px 18px 50px; font-size: 1.2rem; width: 100%; border: none; border-radius: 8px;"></textarea>
-                </div>
-    
-                <button type="submit" style="padding: 16px; background-color: #ffffff; color: #4b0082; border: none; border-radius: 8px; font-size: 1.2rem; font-weight: bold; cursor: pointer;">
-                    <i class="fas fa-paper-plane"></i> Send Message
-                </button>
-            </form>
-    
-            <div id="form-status" style="text-align: center; margin-top: 30px; font-size: 1.2rem; display: none;">✅ Message sent successfully!</div>
-        </div>
-    </section>
-    
-    <!-- Animation CSS -->
-    <style>
-    @keyframes bounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-5px); }
-    }
-    </style>
-    
-    <!-- JavaScript Validation -->
-    <script>
-    function validateForm() {
-        const name = document.getElementById("name").value.trim();
-        const email = document.getElementById("email").value.trim();
-        const message = document.getElementById("message").value.trim();
-    
-        if (!name || !email || !message) {
-            alert("Please fill in all fields.");
-            return false;
-        }
-    
-        const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
-        if (!email.match(emailPattern)) {
-            alert("Please enter a valid email.");
-            return false;
-        }
-    
-        document.getElementById("form-status").style.display = "block";
-        return false; // Prevent actual submission
-    }
-    </script>
-    
-      
 
+        <!-- Developer Reviews Section -->
+        <section class="reviews-section" id="reviews" style="padding: 80px 0; background-color: #f9f9f9;">
+            <div class="container" style="max-width: 1100px; margin: 0 auto;">
+                <h2 class="section-title" style="text-align: center; font-size: 3rem; font-weight: bold; margin-bottom: 50px;color:#4b0082;">Developer Reviews</h2>
+                <div class="reviews-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px;">
+                    <div class="review-card" style="background: white; padding: 25px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+                        <h3>Jane Doe</h3>
+                        <p style="font-style: italic;">"CodeCanvas has completely changed the way I discover front-end projects. Super intuitive!"</p>
+                        <p style="color: #777;">Frontend Developer</p>
+                    </div>
+                    <div class="review-card" style="background: white; padding: 25px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+                        <h3>Raj Patel</h3>
+                        <p style="font-style: italic;">"A must-have platform for developers looking to showcase their UI/UX skills."</p>
+                        <p style="color: #777;">Open Source Contributor</p>
+                    </div>
+                    <div class="review-card" style="background: white; padding: 25px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+                        <h3>Maria Gonzales</h3>
+                        <p style="font-style: italic;">"I’ve found so many cool projects to contribute to. Highly recommended!"</p>
+                        <p style="color: #777;">Full Stack Developer</p>
+                    </div>
+                    <div class="review-card" style="background: white; padding: 25px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+                        <h3>Leo Kim</h3>
+                        <p style="font-style: italic;">"Love the simplicity and design. It's like Behance but for front-end developers."</p>
+                        <p style="color: #777;">UI/UX Designer</p>
+                    </div>
+                    <div class="review-card" style="background: white; padding: 25px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+                        <h3>Sara Ahmed</h3>
+                        <p style="font-style: italic;">"Great place to get feedback on your code and build your portfolio!"</p>
+                        <p style="color: #777;">JavaScript Enthusiast</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-
+        <!-- Contact Us Section -->
+        <section class="contact-section" id="contact" style="padding: 80px 0;  color: white;">
+            <div class="container" style="max-width: 1000px; margin: 0 auto; padding: 30px;">
+                <h2 class="section-title" style="font-size: 3rem; text-align: center; margin-bottom: 50px; font-weight: bold;">Contact Us</h2>
+                <form id="contact-form" onsubmit="return validateForm()" style="display: flex; flex-direction: column; gap: 25px;">
+                    <div style="position: relative;">
+                        <i class="fas fa-user" style="position: absolute; top: 16px; left: 16px; color: #ccc; font-size: 1.4rem; animation: bounce 2s infinite;"></i>
+                        <input type="text" id="name" placeholder="Your Name" required 
+                            style="padding: 18px 18px 18px 50px; font-size: 1.2rem; width: 100%; border: none; border-radius: 8px;">
+                    </div>
+                    <div style="position: relative;">
+                        <i class="fas fa-envelope" style="position: absolute; top: 16px; left: 16px; color: #ccc; font-size: 1.4rem; animation: bounce 2s infinite;"></i>
+                        <input type="email" id="email" placeholder="Your Email" required 
+                            style="padding: 18px 18px 18px 50px; font-size: 1.2rem; width: 100%; border: none; border-radius: 8px;">
+                    </div>
+                    <div style="position: relative;">
+                        <i class="fas fa-comment-dots" style="position: absolute; top: 16px; left: 16px; color: #ccc; font-size: 1.4rem; animation: bounce 2s infinite;"></i>
+                        <textarea id="message" rows="6" placeholder="Your Message" required 
+                            style="padding: 18px 18px 18px 50px; font-size: 1.2rem; width: 100%; border: none; border-radius: 8px;"></textarea>
+                    </div>
+                    <button type="submit" style="padding: 16px; background-color: #ffffff; color: #4b0082; border: none; border-radius: 8px; font-size: 1.2rem; font-weight: bold; cursor: pointer;">
+                        <i class="fas fa-paper-plane"></i> Send Message
+                    </button>
+                </form>
+                <div id="form-status" style="text-align: center; margin-top: 30px; font-size: 1.2rem; display: none;">✅ Message sent successfully!</div>
+            </div>
+        </section>
     </main>
     
     <footer class="footer">
@@ -182,30 +190,8 @@ const icon = document.getElementById('themeIcon');
 
         </div>
     </footer>
+
+
     <script src="script.js"></script>
-    <script>
-    const toggle = document.getElementById('darkModeToggle');
-    const body = document.body;
-    const icon = document.getElementById('themeIcon');
-
-    // Load preference
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'dark') {
-        body.classList.add('dark-theme');
-        icon.textContent = '☀️'; // Sun in dark mode
-    } else {
-        icon.textContent = '🌙'; // Moon in light mode
-    }
-
-    toggle.addEventListener('click', () => {
-        body.classList.toggle('dark-theme');
-        const theme = body.classList.contains('dark-theme') ? 'dark' : 'light';
-        localStorage.setItem('theme', theme);
-
-        // Update icon
-        icon.textContent = theme === 'dark' ? '☀️' : '🌙';
-    });
-</script>
-
-
-  </body>
+</body>
+</html>
