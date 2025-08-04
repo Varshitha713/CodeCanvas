@@ -305,8 +305,47 @@
             <p>Built with ❤️ for showcasing amazing front-end projects</p>
         </div>
     </footer>
-
-
+    <button id="scrollToTopBtn" title="Go to top">↑</button>
     <script src="script.js"></script>
-</body>
-</html>
+    <script>
+    const toggle = document.getElementById('darkModeToggle');
+    const body = document.body;
+    const icon = document.getElementById('themeIcon');
+
+    // Load preference
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+        body.classList.add('dark-theme');
+        icon.textContent = '☀️'; // Sun in dark mode
+    } else {
+        icon.textContent = '🌙'; // Moon in light mode
+    }
+
+    toggle.addEventListener('click', () => {
+        body.classList.toggle('dark-theme');
+        const theme = body.classList.contains('dark-theme') ? 'dark' : 'light';
+        localStorage.setItem('theme', theme);
+
+        // Update icon
+        icon.textContent = theme === 'dark' ? '☀️' : '🌙';
+</script>
+
+    
+<script>
+    const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+
+// Show button when user scrolls down
+window.addEventListener("scroll", () => {
+    scrollToTopBtn.style.display = window.scrollY > 300 ? "block" : "none";
+});
+
+// Scroll to top smoothly
+scrollToTopBtn.addEventListener("click", () => {
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+});
+
+</script>
+  </body>

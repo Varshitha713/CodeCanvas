@@ -5,13 +5,13 @@ const sampleProjects = [
                 id: 1,
                 title: 'Analog Clock Web App',
                 description: 'A beautifully designed analog clock that updates in real-time using vanilla JavaScript, HTML, and CSS. Perfect for understanding basic DOM manipulation and CSS transformations.',
-                repoUrl: 'https://github.com/Varshitha713/analog-clock-web-app',
-                demoUrl: 'https://varshitha713.github.io/analog-clock-web-app/',
+                repoUrl: 'https://github.com/snehhhcodes/Analog-Clock-Web-App',
+                demoUrl: 'https://snehhhcodes.github.io/Analog-Clock-Web-App/',
                 difficulty: 'beginner',
                 upvotes: 15,
                 hasDemo: true,
                 hasReadme: true,
-                previewImage: 'https://github.com/user-attachments/assets/091946a3-d98d-42dc-a22a-90eaefc8b1b1',
+                previewImage: 'assets/Preview.png',
                 tags: ['JavaScript', 'CSS', 'HTML', 'DOM']
             },
             {
