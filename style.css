@@ -494,8 +494,8 @@ body {
 
 .project-title {
   font-size: 1.5rem;
-  font-weight: 700;
-  font-family: "Bebas Neue", sans-serif;
+  font-weight: 600;
+  font-family: "Chakra Petch", sans-serif;
   color: var(--project-title-color);
 }
 
