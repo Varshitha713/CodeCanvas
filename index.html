@@ -139,32 +139,169 @@
             </div>
         </section>
 
-        <!-- Contact Us Section -->
-        <section class="contact-section" id="contact" style="padding: 80px 0;  color: white;">
-            <div class="container" style="max-width: 1000px; margin: 0 auto; padding: 30px;">
-                <h2 class="section-title" style="font-size: 3rem; text-align: center; margin-bottom: 50px; font-weight: bold;">Contact Us</h2>
-                <form id="contact-form" onsubmit="return validateForm()" style="display: flex; flex-direction: column; gap: 25px;">
-                    <div style="position: relative;">
-                        <i class="fas fa-user" style="position: absolute; top: 16px; left: 16px; color: #ccc; font-size: 1.4rem; animation: bounce 2s infinite;"></i>
-                        <input type="text" id="name" placeholder="Your Name" required 
-                            style="padding: 18px 18px 18px 50px; font-size: 1.2rem; width: 100%; border: none; border-radius: 8px;">
-                    </div>
-                    <div style="position: relative;">
-                        <i class="fas fa-envelope" style="position: absolute; top: 16px; left: 16px; color: #ccc; font-size: 1.4rem; animation: bounce 2s infinite;"></i>
-                        <input type="email" id="email" placeholder="Your Email" required 
-                            style="padding: 18px 18px 18px 50px; font-size: 1.2rem; width: 100%; border: none; border-radius: 8px;">
-                    </div>
-                    <div style="position: relative;">
-                        <i class="fas fa-comment-dots" style="position: absolute; top: 16px; left: 16px; color: #ccc; font-size: 1.4rem; animation: bounce 2s infinite;"></i>
-                        <textarea id="message" rows="6" placeholder="Your Message" required 
-                            style="padding: 18px 18px 18px 50px; font-size: 1.2rem; width: 100%; border: none; border-radius: 8px;"></textarea>
-                    </div>
-                    <button type="submit" style="padding: 16px; background-color: #ffffff; color: #4b0082; border: none; border-radius: 8px; font-size: 1.2rem; font-weight: bold; cursor: pointer;">
-                        <i class="fas fa-paper-plane"></i> Send Message
-                    </button>
-                </form>
-                <div id="form-status" style="text-align: center; margin-top: 30px; font-size: 1.2rem; display: none;">✅ Message sent successfully!</div>
+              <!-- Contact Us Section -->
+      <section
+        class="contact-section"
+        id="contact"
+        style="padding: 80px 0; color: white"
+      >
+        <div
+          class="container"
+          id="contact-container"
+          style="max-width: 1000px; margin: 0 auto"
+        >
+          <h2
+            class="section-title"
+            style="
+              font-size: 3rem;
+              text-align: center;
+              margin-bottom: 50px;
+              font-weight: bold;
+            "
+          >
+            Contact Us
+          </h2>
+          <form
+            id="contact-form"
+            onsubmit="return validateForm()"
+            style="display: flex; flex-direction: column; gap: 25px"
+          >
+            <div class="flex-contact">
+              <div class="fullname">
+                <i
+                  class="fas fa-user fas-animation"
+                  style="
+                    position: absolute;
+                    top: 16px;
+                    left: 16px;
+                    color: #ccc;
+                    font-size: 1.4rem;
+                  "
+                ></i>
+                <input
+                  type="text"
+                  id="name"
+                  placeholder="First Name"
+                  required
+                  style="
+                    padding: 18px 18px 18px 50px;
+                    font-size: 1.2rem;
+                    width: 100%;
+                    border: none;
+                    border-radius: 15px;
+                  "
+                />
+              </div>
+              <div class="fullname">
+                <i
+                  class="fas fa-id-card fas-animation"
+                  style="
+                    position: absolute;
+                    top: 16px;
+                    left: 16px;
+                    color: #ccc;
+                    font-size: 1.4rem;
+                  "
+                ></i>
+                <input
+                  type="text"
+                  id="lastname"
+                  placeholder="Last Name"
+                  required
+                  style="
+                    padding: 18px 18px 18px 50px;
+                    font-size: 1.2rem;
+                    width: 100%;
+                    border: none;
+                    border-radius: 15px;
+                  "
+                />
+              </div>
             </div>
+            <div style="position: relative">
+              <i
+                class="fas fa-envelope fas-animation"
+                style="
+                  position: absolute;
+                  top: 16px;
+                  left: 16px;
+                  color: #ccc;
+                  font-size: 1.4rem;
+                "
+              ></i>
+              <input
+                type="email"
+                id="email"
+                placeholder="Your Email"
+                required
+                style="
+                  padding: 18px 18px 18px 50px;
+                  font-size: 1.2rem;
+                  width: 100%;
+                  border: none;
+                  border-radius: 15px;
+                "
+              />
+            </div>
+            <div style="position: relative">
+              <i
+                class="fas fa-comment-dots fas-animation"
+                style="
+                  position: absolute;
+                  top: 16px;
+                  left: 16px;
+                  color: #ccc;
+                  font-size: 1.4rem;
+                "
+              ></i>
+              <textarea
+                id="message"
+                rows="6"
+                placeholder="Your Message"
+                required
+                style="
+                  padding: 18px 18px 18px 50px;
+                  font-size: 1.2rem;
+                  width: 100%;
+                  border: none;
+                  border-radius: 15px;
+                "
+              ></textarea>
+            </div>
+            <button
+              type="submit"
+              id="submit"
+              class="fill-btn"
+              style="
+                padding: 16px;
+                border: none;
+                font-size: 1.2rem;
+                font-weight: bold;
+                cursor: pointer;
+              "
+            >
+              <i class="fas fa-paper-plane"></i> Send Message
+            </button>
+          </form>
+          <div
+            id="form-status"
+            style="
+              text-align: center;
+              margin-top: 30px;
+              font-size: 1.2rem;
+              display: none;
+            "
+          >
+            ✅ Message sent successfully!
+          </div>
+        </div>
+      </section>
+      <div id="message-overlay">
+        <div class="overlay-content">
+          <i class="fas fa-check-circle"></i>
+          <p>Message Delivered</p>
+        </div>
+      </div>
         </section>
     </main>
     

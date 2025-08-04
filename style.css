@@ -600,3 +600,221 @@
       50% { transform: translateY(-5px); }
     }
 
+
+    /* Newly injected code */
+#contact-container {
+  background-color: rgba(255, 255, 255, 0.151);
+  backdrop-filter: blur(2px);
+  border-radius: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.29);
+  padding: 30px;
+}
+#email {
+  width: 100% !important;
+  font-size: 1.2rem;
+  padding: 18px 18px 18px 50px;
+  width: 100%;
+  border: none;
+  border-radius: 15px;
+  line-height: 1.2;
+  box-sizing: border-box;
+  appearance: none;
+}
+
+#email,
+#message,
+#name,
+#lastname {
+  box-shadow: 10px 10px 40px #ffffff41, inset -10px -10px 40px #00000026;
+}
+
+#email:focus,
+#message:focus,
+#name:focus,
+#lastname:focus {
+  outline: none;
+}
+
+textarea {
+  resize: vertical;
+}
+
+#submit {
+  align-self: center;
+  width: 50%;
+  transition: 0.3s;
+  border-radius: 30px;
+  box-shadow: 5px 5px 30px #ffffff41, inset -5px -5px 30px #00000026;
+}
+
+.flex-contact {
+  display: flex;
+  gap: 1vw;
+  width: 100%;
+}
+
+.fullname {
+  width: 50%;
+  position: relative;
+}
+
+#message-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: var(--bg-gradient);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  color: white;
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
+#message-overlay .overlay-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: popIn 0.5s ease-out;
+}
+
+#message-overlay .overlay-content i {
+  font-size: 4rem;
+  color: white;
+  margin-bottom: 20px;
+}
+
+@keyframes popIn {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes softPulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+}
+.fas-animation {
+  animation: softPulse 3s infinite ease-in-out;
+}
+
+/* Tweaking button */
+
+.fill-btn {
+  position: relative;
+  display: inline-block;
+  padding: 14px 28px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: white;
+  background-color: #4b0082;
+  border: 2px solid white;
+  overflow: hidden;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.fill-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease-out;
+  z-index: -1;
+}
+
+.fill-btn:hover::before {
+  transform: scaleX(1);
+}
+
+.fill-btn:hover {
+  color: #4b0082;
+}
+
+body.dark-theme .fill-btn {
+  position: relative;
+  display: inline-block;
+  padding: 14px 28px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: white;
+  background-color: #1a1445;
+  border: 2px solid white;
+  overflow: hidden;
+  cursor: pointer;
+  z-index: 1;
+}
+
+body.dark-theme .fill-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease-out;
+  z-index: -1;
+}
+
+body.dark-theme .fill-btn:hover::before {
+  transform: scaleX(1);
+}
+
+body.dark-theme .fill-btn:hover {
+  color: black;
+}
+
+@media only screen and (max-width: 1020px) {
+  #contact-container {
+    width: 95%;
+  }
+
+  .flex-contact {
+    flex-direction: column;
+    width: 100%;
+    gap: 3vh;
+  }
+
+  .fullname {
+    width: 100%;
+  }
+
+  #contact-container {
+    padding: 3vw;
+  }
+
+  #submit {
+    width: 100%;
+  }
+}
+

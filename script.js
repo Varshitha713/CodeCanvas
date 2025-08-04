@@ -288,28 +288,40 @@ const sampleProjects = [
         // Make handleUpvote globally available
         window.handleUpvote = handleUpvote;
 
-        // Start the app
-        document.addEventListener('DOMContentLoaded', init);
+// Start the app
+document.addEventListener("DOMContentLoaded", init);
+// Adding m own version and also added a feature where the input field will get clear on clicking the send message button
+function validateForm() {
+  const name = document.getElementById("name").value.trim();
+  const lastname = document.getElementById("lastname").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const message = document.getElementById("message").value.trim();
+  if (!name || !lastname || !email || !message) {
+    alert("Please fill in all fields.");
+    return false;
+  }
+  const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+  if (!email.match(emailPattern)) {
+    alert("Please enter a valid email.");
+    return false;
+  }
 
-        function validateForm() {
-        const name = document.getElementById("name").value.trim();
-        const email = document.getElementById("email").value.trim();
-        const message = document.getElementById("message").value.trim();
-    
-        if (!name || !email || !message) {
-            alert("Please fill in all fields.");
-            return false;
-        }
-    
-        const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
-        if (!email.match(emailPattern)) {
-            alert("Please enter a valid email.");
-            return false;
-        }
-    
-        document.getElementById("form-status").style.display = "block";
-        return false; // Prevent actual submission
-    }
+  // Show the overlay
+  const overlay = document.getElementById("message-overlay");
+  overlay.style.opacity = "1";
+  overlay.style.pointerEvents = "auto";
+
+  // Hide the overlay after 3 seconds
+  setTimeout(() => {
+    overlay.style.opacity = "0";
+    overlay.style.pointerEvents = "none";
+  }, 3000);
+
+  // Clear form
+  document.getElementById("contact-form").reset();
+
+  return false; // Prevent actual form submission
+}
 
     const toggle = document.getElementById('darkModeToggle');
     const body = document.body;
