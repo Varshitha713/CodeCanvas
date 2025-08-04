@@ -14,22 +14,25 @@
         <div class="container">
             <div class="header-content">
                 <div class="logo">CodeCanvas</div>
-                <nav class="nav">
+                <div class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false" aria-controls="navMenu">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <div class="nav-container" id="navContainer">
+                    <nav class="nav" id="navMenu">
                     <a href="#" class="nav-link">Home</a>
-
-                    <a href="#browse"class="nav-link">Browse</a>
+                    <a href="#browse" class="nav-link">Browse</a>
                     <a href="#submit" class="nav-link">Submit</a>
                     <a href="#about" class="nav-link">About</a>
                     <a href="#reviews" class="nav-link">Reviews</a>
                     <a href="#contact" class="nav-link">Contact Us</a>
                     <a href="https://github.com/Varshitha713/CodeCanvas" class="btn-primary" target="_blank">
-
-                    <i class="fab fa-github"></i> GitHub
+                        <i class="fab fa-github"></i> GitHub
                     </a>
                     <button class="theme-toggle" id="darkModeToggle" aria-label="Toggle Theme">
                         <span id="themeIcon">🌙</span>
                     </button>
                 </nav>
+            </div>
             </div>
         </div>
     </header>
