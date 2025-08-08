@@ -179,6 +179,19 @@
         </form>
         <div id="form-status" style="text-align: center; margin-top: 30px; font-size: 1.2rem; display: none;">✅ Message sent successfully!</div>
       </div>
+
+        
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 CodeCanvas. Open source project for the developer community.</p>
+            <p>Built with ❤️ for showcasing amazing front-end projects</p>
+        </div>
+    </footer>
+    <button id="scrollToTopBtn" title="Go to top">↑</button>
+   
+    
     </section>
 
     <div id="message-overlay">
@@ -188,29 +201,7 @@
       </div>
     </div>
   </main>
-
-  <footer class="footer">
-    <div class="container">
-      <p>&copy; 2025 CodeCanvas. Open source project for the developer community.</p>
-      <p>Built with ❤️ for showcasing amazing front-end projects</p>
-    </div>
-  </footer>
-
-  <button id="scrollToTopBtn" title="Go to top">↑</button>
-
   <script src="script.js"></script>
-  <script>
-    const toggle = document.getElementById('darkModeToggle');
-    const body = document.body;
-    const icon = document.getElementById('themeIcon');
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'dark') {
-      body.classList.add('dark-theme');
-      icon.textContent = '☀️';
-    } else {
-      icon.textContent = '🌙';
-    }
-  </script>
-  <script src="script.js"></script>
+
 </body>
 </html>

@@ -1202,3 +1202,25 @@ body.dark-theme button:hover {
 }
 
 
+        #scrollToTopBtn {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 999;
+    background-color: #667eea;
+    color: white;
+    border: none;
+    outline: none;
+    padding: 0.75rem 1rem;
+    border-radius: 50%;
+    font-size: 1.25rem;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    display: none;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+#scrollToTopBtn:hover {
+    background-color: #5a67d8;
+    transform: scale(1.1);
+}
