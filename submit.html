@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Project Submit — Demo</title>
+  <style>
+    :root{
+      --bg:linear-gradient(135deg, #667eea 0%, #764ba2 100%); --card: #ffffff; --muted: #6b7280; --accent: #7c3aed; --success: #10b981;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial;color:#000;background:var(--bg);padding:28px;}
+    .container{max-width:880px;margin:0 auto;background:white;color:black;border-radius:12px;padding:20px}
+    header{display:flex;align-items:center;gap:16px;margin-bottom:18px}
+    header h1{font-size:20px;margin:0}
+    .card{background:white;border:1px solid rgba(0,0,0,0.1);padding:20px;border-radius:12px;box-shadow:0 6px 18px rgba(0,0,0,0.1)}
+    form .row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    label{display:block;font-size:13px;color:var(--muted);margin-bottom:8px}
+    input[type="text"], input[type="email"], input[type="url"], select, textarea{width:100%;padding:10px;border-radius:8px;border:1px solid rgba(0,0,0,0.2);background:transparent;color:black;font-size:14px}
+    textarea{min-height:110px;resize:vertical}
+    .full{grid-column:1 / -1}
+    .field-help{font-size:12px;color:var(--muted);margin-top:6px}
+    .controls{display:flex;gap:8px;align-items:center;margin-top:12px}
+    .btn{background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+    .btn.ghost{background:transparent;border:1px solid rgba(0,0,0,0.2);color: black}
+    .preview{border:1px dashed rgba(0,0,0,0.2);padding:12px;border-radius:8px;text-align:center;color:var(--muted)}
+    .thumb{max-width:100%;max-height:160px;border-radius:8px;display:block;margin:8px auto}
+    .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+    .tag{background:rgba(0,0,0,0.05);padding:6px 10px;border-radius:999px;font-size:13px;color:black;display:inline-flex;gap:8px;align-items:center}
+    .tag button{background:transparent;border:0;color:black;cursor:pointer}
+    .error{color:#dc2626;font-size:13px;margin-top:6px}
+    .success-banner{display:flex;gap:10px;align-items:center;padding:12px;border-radius:10px;background:linear-gradient(90deg, rgba(16,185,129,0.12), rgba(124,58,237,0.04));border:1px solid rgba(16,185,129,0.12);color:var(--success);}
+    @media (max-width:720px){form .row{grid-template-columns:1fr}header h1{font-size:18px}}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <svg width="36" height="36" viewBox="0 0 24 24" fill="none" aria-hidden>
+        <rect width="24" height="24" rx="6" fill="#0b1220"></rect>
+        <path d="M6 15V9a3 3 0 013-3h6a3 3 0 013 3v6" stroke="#7c3aed" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <div>
+        <h1>Submit a Project</h1>
+        <div style="font-size:13px;color:var(--muted)">Share your project</div>
+      </div>
+    </header>
+
+    <section class="card">
+      <form id="submitForm" novalidate>
+        <div class="row">
+          <div class="full">
+            <label for="title">Project Title *</label>
+            <input id="title" name="title" type="text" placeholder="Short descriptive title" required />
+            <div id="titleErr" class="error" style="display:none">Please provide a project title.</div>
+          </div>
+
+          <div class="full">
+            <label for="description">Short Description *</label>
+            <textarea id="description" name="description" placeholder="2–3 sentence summary" required></textarea>
+            <div id="descErr" class="error" style="display:none">Description must be at least 20 characters.</div>
+          </div>
+
+          <div>
+            <label for="difficulty">Difficulty Level *</label>
+            <select id="difficulty" name="difficulty" required>
+              <option value="">Select level</option>
+              <option>Beginner</option>
+              <option>Intermediate</option>
+              <option>Advanced</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="tagsInput">Tags / Tech Stack</label>
+            <div style="display:flex;gap:8px;align-items:center">
+              <input id="tagsInput" type="text" placeholder="Type a tag and press Enter" />
+              <button id="addTagBtn" type="button" class="btn ghost">Add</button>
+            </div>
+            <div class="tags" id="tags"></div>
+            <div class="field-help">Examples: JavaScript, React, Python, ML, PWA</div>
+          </div>
+
+          <div class="full">
+            <label for="github">GitHub Repository Link *</label>
+            <input id="github" name="github" type="url" placeholder="https://github.com/username/repo" required />
+            <div id="gitErr" class="error" style="display:none">Please provide a valid GitHub repository URL.</div>
+          </div>
+
+          <div>
+            <label for="demo">Live Demo Link (optional)</label>
+            <input id="demo" name="demo" type="url" placeholder="https://your-demo.example.com" />
+          </div>
+
+          <div>
+            <label for="image">Upload Preview Image (JPG/PNG)</label>
+            <input id="image" name="image" type="file" accept="image/png, image/jpeg" />
+            <div id="imgErr" class="error" style="display:none">Please upload a JPG or PNG under 2MB.</div>
+            <div class="preview" id="previewBox">No image selected</div>
+          </div>
+
+          <div>
+            <label for="contributor">Contributor Name *</label>
+            <input id="contributor" name="contributor" type="text" placeholder="Your name" required />
+          </div>
+
+          <div>
+            <label for="email">Contributor Email *</label>
+            <input id="email" name="email" type="email" placeholder="you@example.com" required />
+            <div id="emailErr" class="error" style="display:none">Please provide a valid email address.</div>
+          </div>
+
+        </div>
+
+        <div style="margin-top:14px;display:flex;gap:8px;flex-wrap:wrap;align-items:center">
+          <button class="btn" type="submit">Submit Project</button>
+          <button id="resetBtn" type="button" class="btn ghost">Reset</button>
+          <div style="margin-left:auto;font-size:13px;color:var(--muted)">Fields marked * are required</div>
+        </div>
+
+      </form>
+
+      <div id="result" style="margin-top:14px;display:none"></div>
+    </section>
+
+  </div>
+
+  <script>
+    // Simple client-side handling + validation
+    const form = document.getElementById('submitForm');
+    const title = document.getElementById('title');
+    const description = document.getElementById('description');
+    const difficulty = document.getElementById('difficulty');
+    const github = document.getElementById('github');
+    const demo = document.getElementById('demo');
+    const image = document.getElementById('image');
+    const previewBox = document.getElementById('previewBox');
+    const contributor = document.getElementById('contributor');
+    const email = document.getElementById('email');
+    const result = document.getElementById('result');
+
+    const titleErr = document.getElementById('titleErr');
+    const descErr = document.getElementById('descErr');
+    const gitErr = document.getElementById('gitErr');
+    const imgErr = document.getElementById('imgErr');
+    const emailErr = document.getElementById('emailErr');
+
+    // Tags
+    const tagsInput = document.getElementById('tagsInput');
+    const addTagBtn = document.getElementById('addTagBtn');
+    const tagsBox = document.getElementById('tags');
+    let tags = [];
+
+    function renderTags(){
+      tagsBox.innerHTML = '';
+      tags.forEach((t, idx) => {
+        const el = document.createElement('span');
+        el.className = 'tag';
+        el.innerHTML = `${t} <button aria-label="remove tag" data-idx="${idx}">&times;</button>`;
+        tagsBox.appendChild(el);
+      })
+    }
+
+    tagsBox.addEventListener('click', e => {
+      if(e.target.matches('button')){
+        const i = Number(e.target.dataset.idx);
+        tags.splice(i,1);
+        renderTags();
+      }
+    })
+
+    addTagBtn.addEventListener('click', ()=>{
+      const val = tagsInput.value.trim();
+      if(val && !tags.includes(val)){
+        tags.push(val);
+        tagsInput.value='';
+        renderTags();
+      }
+    })
+
+    tagsInput.addEventListener('keypress', e=>{
+      if(e.key === 'Enter'){
+        e.preventDefault(); addTagBtn.click();
+      }
+    })
+
+    // Image preview & validation
+    image.addEventListener('change', ()=>{
+      imgErr.style.display='none';
+      previewBox.innerHTML = 'No image selected';
+      const file = image.files[0];
+      if(!file) return;
+      if(!['image/jpeg','image/png'].includes(file.type) || file.size > 2*1024*1024){
+        imgErr.style.display='block';
+        image.value='';
+        return;
+      }
+      const url = URL.createObjectURL(file);
+      previewBox.innerHTML = `<img class="thumb" src="${url}" alt="preview" />`;
+    })
+
+    // Basic validators
+    function validURL(u){
+      try{ new URL(u); return true }catch(e){return false}
+    }
+
+    function isGithubRepo(u){
+      if(!validURL(u)) return false;
+      try{
+        const p = new URL(u).pathname;
+        // simple heuristic: /user/repo
+        return /^\/[\w-]+\/[\w.-]+\/?$/.test(p);
+      }catch(e){return false}
+    }
+
+    function resetErrors(){
+      [titleErr,descErr,gitErr,imgErr,emailErr].forEach(el=>el.style.display='none');
+      result.style.display='none';
+    }
+
+    form.addEventListener('submit', (e)=>{
+      e.preventDefault();
+      resetErrors();
+
+      let ok = true;
+      if(!title.value.trim()){ titleErr.style.display='block'; ok=false }
+      if(description.value.trim().length < 20){ descErr.style.display='block'; ok=false }
+      if(!difficulty.value){ ok=false; difficulty.style.outline='1px solid rgba(124,58,237,0.28)'; setTimeout(()=>difficulty.style.outline='none',1500) }
+      if(!isGithubRepo(github.value.trim())){ gitErr.style.display='block'; ok=false }
+      if(!contributor.value.trim()){ contributor.style.outline='1px solid rgba(255,120,120,0.18)'; ok=false; setTimeout(()=>contributor.style.outline='none',1500) }
+      if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())){ emailErr.style.display='block'; ok=false }
+
+      const file = image.files[0];
+      if(file){
+        if(!['image/jpeg','image/png'].includes(file.type) || file.size > 2*1024*1024){ imgErr.style.display='block'; ok=false }
+      }
+
+      if(!ok) return;
+
+      // Prepare a payload (in a real app you'd send to server)
+      const payload = {
+        title: title.value.trim(),
+        description: description.value.trim(),
+        difficulty: difficulty.value,
+        tags,
+        github: github.value.trim(),
+        demo: demo.value.trim(),
+        contributor: contributor.value.trim(),
+        email: email.value.trim(),
+        imageName: file ? file.name : null,
+        submittedAt: new Date().toISOString()
+      }
+
+      // show success
+      result.style.display='block';
+      result.innerHTML = `<div class="success-banner">✅ Project submitted locally. You can see the preview below. <div style=\"margin-left:auto;font-size:13px;color:var(--muted)\">${new Date().toLocaleString()}</div></div>`;
+
+      // create a small review card
+      const review = document.createElement('div');
+      review.className='card';
+      review.style.marginTop='12px';
+      review.innerHTML = `
+        <h3 style="margin:0 0 8px 0">${payload.title} <small style='color:var(--muted);font-weight:600'>• ${payload.difficulty}</small></h3>
+        <p style='color:var(--muted);margin:0 0 8px 0'>${payload.description}</p>
+        <div style='display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px'>${payload.tags.map(t=>`<span class="tag">${t}</span>`).join('')}</div>
+        <div style='font-size:13px;color:var(--muted)'>Repo: <a href='${payload.github}' target='_blank'>${payload.github}</a> ${payload.demo ? '| Demo: <a href="'+payload.demo+'" target="_blank">'+payload.demo+'</a>' : ''}</div>
+      `;
+
+      result.appendChild(review);
+
+      // In a production flow you would send `FormData` including the file by fetch to your backend.
+      // Here we simply print the payload to console for developer convenience.
+      console.log('PROJECT PAYLOAD', payload);
+
+      // optional: reset form after submission (comment out if you prefer keeping values)
+      // form.reset(); tags = []; renderTags(); previewBox.innerHTML='No image selected';
+    })
+
+    document.getElementById('resetBtn').addEventListener('click', ()=>{
+      form.reset(); tags=[]; renderTags(); previewBox.innerHTML='No image selected'; resetErrors();
+    })
+
+  </script>
+</body>
+</html>
