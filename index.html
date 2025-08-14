@@ -18,6 +18,7 @@
                 <div class="logo">CodeCanvas</div>
                 <nav class="nav">
                     <a href="#" class="nav-link">Home</a>
+                    <a href="#" id="openLogin" class="btn-secondary">Login / Signup</a>
 
                     <a href="#browse"class="nav-link">Browse</a>
                     <a href="#submit" class="nav-link">Submit</a>
@@ -384,9 +385,78 @@
     } else {
         icon.textContent = '🌙'; // Moon in light mode
     }
-
-
+    </script>
     <script src="script.js"></script>
 </body>
 </html>
 
+<!-- Login Modal -->
+<div id="loginModal" class="modal">
+  <div class="modal-content">
+    <span class="close" id="closeLogin">&times;</span>
+    <h2>Login</h2>
+    <form id="loginForm">
+      <input type="email" id="loginEmail" placeholder="Email" required>
+      <input type="password" id="loginPassword" placeholder="Password" required>
+      <button type="submit" class="btn-primary">Login</button>
+      <p>Don't have an account? <a href="#" id="showSignup">Sign up</a></p>
+    </form>
+  </div>
+</div>
+
+<!-- Signup Modal -->
+<div id="signupModal" class="modal">
+  <div class="modal-content">
+    <span class="close" id="closeSignup">&times;</span>
+    <h2>Sign Up</h2>
+    <form id="signupForm">
+      <input type="text" id="signupName" placeholder="Full Name" required>
+      <input type="email" id="signupEmail" placeholder="Email" required>
+      <input type="password" id="signupPassword" placeholder="Password" required>
+      <button type="submit" class="btn-primary">Sign Up</button>
+      <p>Already have an account? <a href="#" id="showLogin">Login</a></p>
+    </form>
+  </div>
+</div>
+
+<!-- Add Login/Signup button to header nav -->
+<script>
+  // Show/Hide modals
+  document.addEventListener('DOMContentLoaded', function() {
+    const loginModal = document.getElementById('loginModal');
+    const signupModal = document.getElementById('signupModal');
+    const showLogin = document.getElementById('showLogin');
+    const showSignup = document.getElementById('showSignup');
+    const closeLogin = document.getElementById('closeLogin');
+    const closeSignup = document.getElementById('closeSignup');
+
+    document.getElementById('openLogin').onclick = () => loginModal.style.display = 'block';
+    closeLogin.onclick = () => loginModal.style.display = 'none';
+    closeSignup.onclick = () => signupModal.style.display = 'none';
+
+    showSignup && (showSignup.onclick = (e) => {
+      e.preventDefault();
+      loginModal.style.display = 'none';
+      signupModal.style.display = 'block';
+    });
+    showLogin && (showLogin.onclick = (e) => {
+      e.preventDefault();
+      signupModal.style.display = 'none';
+      loginModal.style.display = 'block';
+    });
+
+    window.onclick = function(event) {
+      if (event.target == loginModal) loginModal.style.display = 'none';
+      if (event.target == signupModal) signupModal.style.display = 'none';
+    };
+  });
+</script>
+
+<style>
+/* Simple modal styles */
+.modal { display:none; position:fixed; z-index:1000; left:0; top:0; width:100%; height:100%; overflow:auto; background:rgba(0,0,0,0.5);}
+.modal-content { background:#fff; margin:10% auto; padding:30px; border-radius:8px; width:90%; max-width:400px; position:relative;}
+.close { position:absolute; top:10px; right:20px; font-size:2rem; cursor:pointer;}
+.modal input { width:100%; margin:10px 0; padding:12px; border-radius:5px; border:1px solid #ccc;}
+.modal button { width:100%; }
+</style>
