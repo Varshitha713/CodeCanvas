@@ -601,3 +601,51 @@ scrollToTopBtn.addEventListener("click", () => {
         behavior: "smooth"
     });
 });
+// Dark Mode Memory
+const darkToggle = document.getElementById("darkModeToggle");
+const themeIcon = document.getElementById("themeIcon");
+if(localStorage.getItem("theme") === "dark") {
+  document.body.classList.add("dark");
+  themeIcon.textContent = "☀️";
+}
+darkToggle.addEventListener("click", () => {
+  document.body.classList.toggle("dark");
+  const mode = document.body.classList.contains("dark") ? "dark" : "light";
+  themeIcon.textContent = mode === "dark" ? "☀️" : "🌙";
+  localStorage.setItem("theme", mode);
+});
+
+// AOS Init
+AOS.init({ duration: 800, once: true });
+
+// Fetch GitHub Stats
+fetch("https://api.github.com/repos/Varshitha713/CodeCanvas")
+  .then(res => res.json())
+  .then(data => {
+    document.getElementById("github-stars").innerHTML = `${data.stargazers_count} <span>GitHub Stars</span>`;
+    document.getElementById("contributors").innerHTML = `${data.forks_count} <span>Forks</span>`;
+  });
+
+// Simulated Projects Count
+document.getElementById("total-projects").innerHTML = `152 <span>Projects</span>`;
+
+// Contact Form Popup
+document.getElementById("contact-form").addEventListener("submit", function(e) {
+  e.preventDefault();
+  document.getElementById("message-overlay").style.display = "flex";
+  setTimeout(() => {
+    document.getElementById("message-overlay").style.display = "none";
+    this.reset();
+  }, 2000);
+});
+document.querySelectorAll(".project-card").forEach(card => {
+  card.addEventListener("mousemove", e => {
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left - rect.width/2;
+    const y = e.clientY - rect.top - rect.height/2;
+    card.style.transform = `rotateY(${x/25}deg) rotateX(${-y/25}deg)`;
+  });
+  card.addEventListener("mouseleave", () => {
+    card.style.transform = `rotateY(0) rotateX(0)`;
+  });
+});

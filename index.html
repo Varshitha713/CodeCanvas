@@ -10,8 +10,11 @@
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+<link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 </head>
 <body>
+  
   <header class="header">
     <div class="container">
       <div class="header-content">
@@ -33,8 +36,7 @@
       </div>
     </div>
   </header>
-
-  <main>
+<main>
     <section class="hero">
       <div class="container">
         <h1>Showcase Your Front-End Creations</h1>
@@ -114,6 +116,16 @@
               </div>
             </div>
           </div>
+          <section class="stats" id="stats" data-aos="fade-up">
+  <div class="stat" id="total-projects">0 <span>Projects</span></div>
+  <div class="stat" id="contributors">0 <span>Contributors</span></div>
+  <div class="stat" id="github-stars">0 <span>GitHub Stars</span></div>
+</section>
+
+<!-- Floating GitHub button -->
+<a href="https://github.com/Varshitha713/CodeCanvas" target="_blank" class="github-fab">
+  <i class="fab fa-github"></i>
+</a>
           <div class="swiper-slide">
             <div class="testimonial">
               <img src="./assets/man.png" alt="Raj Patel" class="avatar" />
