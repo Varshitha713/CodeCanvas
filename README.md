@@ -52,7 +52,7 @@ CodeCanvas aims to be a go-to hub for front-end developers to display their work
   <b>This project is now OFFICIALLY accepted for:</b>
 </p>
 
-![GSSoC Logo](/CodeCanvas/assets/gssoc%20logo.png)
+![GSSoC Logo](https://github.com/Varshitha713/CodeCanvas/blob/master/assets/gssoc%20logo.png)
 
 🌟 **Exciting News...**
 
