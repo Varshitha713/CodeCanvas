@@ -1,9 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>CodeCanvas - Showcase Front-End Projects</title>
+  <!-- Favicon PNG -->
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
@@ -11,6 +15,7 @@
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 </head>
+
 <body>
   <header class="header">
     <div class="container">
@@ -38,7 +43,8 @@
     <section class="hero">
       <div class="container">
         <h1>Showcase Your Front-End Creations</h1>
-        <p>Discover, share, and get inspired by amazing front-end projects from developers around the world. Join the community and showcase your creativity!</p>
+        <p>Discover, share, and get inspired by amazing front-end projects from developers around the world. Join the
+          community and showcase your creativity!</p>
         <a href="#projects" class="btn-primary">Explore Projects</a>
       </div>
     </section>
@@ -52,7 +58,8 @@
             <div class="search-container">
               <i class="fas fa-search search-icon"></i>
               <input type="text" id="search-input" placeholder="Search projects by title, description, or tags..." />
-              <button class="clear-search" id="clear-search" style="display: none;"><i class="fas fa-times"></i></button>
+              <button class="clear-search" id="clear-search" style="display: none;"><i
+                  class="fas fa-times"></i></button>
             </div>
           </div>
           <div class="filter-group">
@@ -90,7 +97,9 @@
     <section class="projects-section" id="projects">
       <div class="projects-container">
         <h2 class="section-title">Featured Projects</h2>
-        <div class="loading" id="loading"><div class="spinner"></div></div>
+        <div class="loading" id="loading">
+          <div class="spinner"></div>
+        </div>
         <div class="projects-grid" id="projects-container" style="display: none;"></div>
         <div class="empty-state" id="empty-state" style="display: none;">
           <i class="fas fa-search"></i>
@@ -110,7 +119,8 @@
               <div class="testimonial-content">
                 <h3 class="review-name">Jane Doe</h3>
                 <p class="review-role">Frontend Developer</p>
-                <p class="testimonial-text">“CodeCanvas has completely changed the way I discover front-end projects. Super intuitive!”</p>
+                <p class="testimonial-text">“CodeCanvas has completely changed the way I discover front-end projects.
+                  Super intuitive!”</p>
               </div>
             </div>
           </div>
@@ -120,7 +130,8 @@
               <div class="testimonial-content">
                 <h3 class="review-name">Raj Patel</h3>
                 <p class="review-role">Open Source Contributor</p>
-                <p class="testimonial-text">“A must-have platform for developers looking to showcase their UI/UX skills.”</p>
+                <p class="testimonial-text">“A must-have platform for developers looking to showcase their UI/UX
+                  skills.”</p>
               </div>
             </div>
           </div>
@@ -140,7 +151,8 @@
               <div class="testimonial-content">
                 <h3 class="review-name">Leo Kim</h3>
                 <p class="review-role">UI/UX Designer</p>
-                <p class="testimonial-text">“Love the simplicity and design. It's like Behance but for front-end developers.”</p>
+                <p class="testimonial-text">“Love the simplicity and design. It's like Behance but for front-end
+                  developers.”</p>
               </div>
             </div>
           </div>
@@ -162,80 +174,96 @@
 
     <section class="contact-section" id="contact" style="padding: 80px 0; color: white">
       <div class="container" id="contact-container" style="max-width: 1000px; margin: 0 auto">
-        <h2 class="section-title" style="font-size: 3rem; text-align: center; margin-bottom: 50px; font-weight: bold;">Contact Us</h2>
-        <form id="contact-form" onsubmit="return validateForm()" style="display: flex; flex-direction: column; gap: 25px">
+        <h2 class="section-title" style="font-size: 3rem; text-align: center; margin-bottom: 50px; font-weight: bold;">
+          Contact Us</h2>
+        <form id="contact-form" onsubmit="return validateForm()"
+          style="display: flex; flex-direction: column; gap: 25px">
           <div class="flex-contact">
             <div class="fullname">
-              <i class="fas fa-user fas-animation" style="position: absolute; top: 16px; left: 16px; color: #ccc; font-size: 1.4rem;"></i>
-              <input type="text" id="name" placeholder="First Name" required style="padding: 18px 18px 18px 50px; font-size: 1.2rem; width: 100%; border: none; border-radius: 15px;" />
+              <i class="fas fa-user fas-animation"
+                style="position: absolute; top: 16px; left: 16px; color: #ccc; font-size: 1.4rem;"></i>
+              <input type="text" id="name" placeholder="First Name" required
+                style="padding: 18px 18px 18px 50px; font-size: 1.2rem; width: 100%; border: none; border-radius: 15px;" />
             </div>
             <div class="fullname">
-              <i class="fas fa-id-card fas-animation" style="position: absolute; top: 16px; left: 16px; color: #ccc; font-size: 1.4rem;"></i>
-              <input type="text" id="lastname" placeholder="Last Name" required style="padding: 18px 18px 18px 50px; font-size: 1.2rem; width: 100%; border: none; border-radius: 15px;" />
+              <i class="fas fa-id-card fas-animation"
+                style="position: absolute; top: 16px; left: 16px; color: #ccc; font-size: 1.4rem;"></i>
+              <input type="text" id="lastname" placeholder="Last Name" required
+                style="padding: 18px 18px 18px 50px; font-size: 1.2rem; width: 100%; border: none; border-radius: 15px;" />
             </div>
           </div>
           <div style="position: relative">
-            <i class="fas fa-envelope fas-animation" style="position: absolute; top: 16px; left: 16px; color: #ccc; font-size: 1.4rem;"></i>
-            <input type="email" id="email" placeholder="Your Email" required style="padding: 18px 18px 18px 50px; font-size: 1.2rem; width: 100%; border: none; border-radius: 15px;" />
+            <i class="fas fa-envelope fas-animation"
+              style="position: absolute; top: 16px; left: 16px; color: #ccc; font-size: 1.4rem;"></i>
+            <input type="email" id="email" placeholder="Your Email" required
+              style="padding: 18px 18px 18px 50px; font-size: 1.2rem; width: 100%; border: none; border-radius: 15px;" />
           </div>
           <div style="position: relative">
-            <i class="fas fa-comment-dots fas-animation" style="position: absolute; top: 16px; left: 16px; color: #ccc; font-size: 1.4rem;"></i>
-            <textarea id="message" rows="6" placeholder="Your Message" required style="padding: 18px 18px 18px 50px; font-size: 1.2rem; width: 100%; border: none; border-radius: 15px;"></textarea>
+            <i class="fas fa-comment-dots fas-animation"
+              style="position: absolute; top: 16px; left: 16px; color: #ccc; font-size: 1.4rem;"></i>
+            <textarea id="message" rows="6" placeholder="Your Message" required
+              style="padding: 18px 18px 18px 50px; font-size: 1.2rem; width: 100%; border: none; border-radius: 15px;"></textarea>
           </div>
-          <button type="submit" id="submit" class="fill-btn" style="padding: 16px; border: none; font-size: 1.2rem; font-weight: bold; cursor: pointer;">
+          <button type="submit" id="submit" class="fill-btn"
+            style="padding: 16px; border: none; font-size: 1.2rem; font-weight: bold; cursor: pointer;">
             <i class="fas fa-paper-plane"></i> Send Message
           </button>
         </form>
-        <div id="form-status" style="text-align: center; margin-top: 30px; font-size: 1.2rem; display: none;">✅ Message sent successfully!</div>
+        <div id="form-status" style="text-align: center; margin-top: 30px; font-size: 1.2rem; display: none;">✅ Message
+          sent successfully!</div>
       </div>
 
-        
-    </main>
 
-    <footer class="footer">
-      <div class="footer-flex-container">
-        <div class="footer-1">
+  </main>
+
+  <footer class="footer">
+    <div class="footer-flex-container">
+      <div class="footer-1">
         <div class="footer-logo">CodeCanvas</div>
         <ul class="socials">
-              <li><a href="https://github.com/Varshitha713/CodeCanvas" target="_blank"><i class="fa-brands fa-github"></i></a></li>
-              <li><a href="https://www.linkedin.com/in/varshitha-macha/" target="_blank"><i class="fa-brands fa-linkedin"></i></a></li>
-              <li><a href="https://discord.com/users/1179807221329182780" target="_blank"><i class="fa-brands fa-discord"></i></a></li>
-              <li><a href="#"><i class="fa-solid fa-envelope"></i></a></li>
+          <li><a href="https://github.com/Varshitha713/CodeCanvas" target="_blank"><i
+                class="fa-brands fa-github"></i></a></li>
+          <li><a href="https://www.linkedin.com/in/varshitha-macha/" target="_blank"><i
+                class="fa-brands fa-linkedin"></i></a></li>
+          <li><a href="https://discord.com/users/1179807221329182780" target="_blank"><i
+                class="fa-brands fa-discord"></i></a></li>
+          <li><a href="#"><i class="fa-solid fa-envelope"></i></a></li>
         </ul>
       </div>
-        <div class="quick-links">
-          <ul>
-            <div class="p-1">
-              <li><a href="#">Home</a></li>
-              <li><a href="#browse">Browse</a></li>
-              <li><a href="#submit">Submit</a></li>
-            </div>
-            <div class="p-2">
-              <li><a href="#about">About</a></li>
-              <li><a href="#reviews">Reviews</a></li>
-              <li><a href="#contact">Contact Us</a></li>
-            </div>
-          </ul>
-        </div>
-      </div>
-        <div class="container">
-            <p>&copy; 2025 CodeCanvas. Open source project for the developer community.</p>
-            <p>Built with ❤️ for showcasing amazing front-end projects</p>
-        </div>
-    </footer>
-    <button id="scrollToTopBtn" title="Go to top">↑</button>
-   
-    
-    </section>
-
-    <div id="message-overlay">
-      <div class="overlay-content">
-        <i class="fas fa-check-circle"></i>
-        <p>Message Delivered</p>
+      <div class="quick-links">
+        <ul>
+          <div class="p-1">
+            <li><a href="#">Home</a></li>
+            <li><a href="#browse">Browse</a></li>
+            <li><a href="#submit">Submit</a></li>
+          </div>
+          <div class="p-2">
+            <li><a href="#about">About</a></li>
+            <li><a href="#reviews">Reviews</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+          </div>
+        </ul>
       </div>
     </div>
+    <div class="container">
+      <p>&copy; 2025 CodeCanvas. Open source project for the developer community.</p>
+      <p>Built with ❤️ for showcasing amazing front-end projects</p>
+    </div>
+  </footer>
+  <button id="scrollToTopBtn" title="Go to top">↑</button>
+
+
+  </section>
+
+  <div id="message-overlay">
+    <div class="overlay-content">
+      <i class="fas fa-check-circle"></i>
+      <p>Message Delivered</p>
+    </div>
+  </div>
   </main>
   <script src="script.js"></script>
 
 </body>
+
 </html>
