@@ -615,3 +615,26 @@ scrollToTopBtn.addEventListener("click", () => {
         behavior: "smooth"
     });
 });
+document.addEventListener("DOMContentLoaded", () => {
+  const faders = document.querySelectorAll('.fade-in');
+
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('animate');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  faders.forEach(fade => observer.observe(fade));
+});
+entries.forEach((entry, index) => {
+  if (entry.isIntersecting) {
+    setTimeout(() => {
+      entry.target.classList.add('animate');
+    }, index * 100); // 100ms delay between cards
+    observer.unobserve(entry.target);
+  }
+});
+

@@ -1,4 +1,4 @@
-/* Base styles */
+
         * {
             margin: 0;
             padding: 0;
@@ -83,12 +83,33 @@
             transition: background 0.3s ease, color 0.3s ease;
         }
 
+
 .container,
 .filter-container,
 .projects-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
+
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+@keyframes Fadeinup {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.fade-in {
+  opacity: 0; /* ✅ start hidden */
+  transform: translateY(20px);
+}
+
+.fade-in.animate {
+  animation: Fadeinup 0.6s ease-out forwards;
 }
 
         /* Header styles */
@@ -1008,6 +1029,7 @@ body.dark-theme .tag-badge {
     }
 
     /* Newly injected code */
+
 #contact-container {
   background-color: rgba(255, 255, 255, 0.151);
   backdrop-filter: blur(2px);
@@ -1015,6 +1037,7 @@ body.dark-theme .tag-badge {
   border: 1px solid rgba(255, 255, 255, 0.29);
   padding: 30px;
 }
+
 #email {
   width: 100% !important;
   font-size: 1.2rem;
@@ -1102,6 +1125,7 @@ textarea {
     transform: scale(0.8);
     opacity: 0;
   }
+
   to {
     transform: scale(1);
     opacity: 1;
@@ -1113,15 +1137,18 @@ textarea {
     transform: scale(1);
     opacity: 0.5;
   }
+
   50% {
     transform: scale(1.05);
     opacity: 1;
   }
+
   100% {
     transform: scale(1);
     opacity: 0.5;
   }
 }
+
 .fas-animation {
   animation: softPulse 3s infinite ease-in-out;
 }
@@ -1223,44 +1250,47 @@ body.dark-theme .fill-btn:hover {
     width: 100%;
   }
 }
+
 /* ------------------------------------------- */
- .dark-theme .filters {
+.dark-theme .filters {
 
-            background: rgba(18, 25, 60, 0.75); /* dark blue translucent */
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            
-            border-radius: 16px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            
-            box-shadow:
-                0 0 8px rgba(44, 66, 255, 0.4),
-                0 0 16px rgba(44, 66, 255, 0.3);
-            
-            color: #f0f4ff;
-            transition: all 0.3s ease;
-        }
+  background: rgba(18, 25, 60, 0.75);
+  /* dark blue translucent */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 
-         .dark-theme .project-card {
-          background: rgba(18, 25, 60, 0.75); /* dark blue translucent */
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            
-            border-radius: 16px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            
-            box-shadow:
-                0 0 8px rgba(44, 66, 255, 0.4),
-                0 0 16px rgba(44, 66, 255, 0.3);
-            
-            color: #f0f4ff;
-            transition: all 0.3s ease;
-        }
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  box-shadow:
+    0 0 8px rgba(44, 66, 255, 0.4),
+    0 0 16px rgba(44, 66, 255, 0.3);
+
+  color: #f0f4ff;
+  transition: all 0.3s ease;
+}
+
+.dark-theme .project-card {
+  background: rgba(18, 25, 60, 0.75);
+  /* dark blue translucent */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  box-shadow:
+    0 0 8px rgba(44, 66, 255, 0.4),
+    0 0 16px rgba(44, 66, 255, 0.3);
+
+  color: #f0f4ff;
+  transition: all 0.3s ease;
+}
 
 /* Dark theme styles  for cards*/
 body.dark-theme button:hover {
   background-color: rgba(102, 126, 234, 0.3);
-  cursor: pointer;
+  cursor: pointer;
 }
 
 
@@ -1293,7 +1323,7 @@ body.dark-theme textarea {
 
 /* Dark mode buttons */
 body.dark-theme button {
-  background-color: rgba(102, 126, 234, 0.3) ;
+  background-color: rgba(102, 126, 234, 0.3);
   color: #ffffff !important;
   border: 1px solid rgba(102, 126, 234, 0.3);
 }
@@ -1305,22 +1335,22 @@ body.dark-theme button:hover {
 }
 
 
-        #scrollToTopBtn {
-    position: fixed;
-    bottom: 2rem;
-    right: 2rem;
-    z-index: 999;
-    background-color: #667eea;
-    color: white;
-    border: none;
-    outline: none;
-    padding: 0.75rem 1rem;
-    border-radius: 50%;
-    font-size: 1.25rem;
-    cursor: pointer;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    display: none;
-    transition: background 0.3s ease, transform 0.3s ease;
+#scrollToTopBtn {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 999;
+  background-color: #667eea;
+  color: white;
+  border: none;
+  outline: none;
+  padding: 0.75rem 1rem;
+  border-radius: 50%;
+  font-size: 1.25rem;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  display: none;
+  transition: background 0.3s ease, transform 0.3s ease;
 }
 
 #scrollToTopBtn:hover {
