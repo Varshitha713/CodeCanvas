@@ -18,14 +18,14 @@ const sampleProjects = [
     id: 2,
     title: 'Weather Dashboard',
     description: 'A responsive weather application with beautiful animations and detailed forecasts. Features location-based weather data and interactive charts.',
-    repoUrl: 'https://github.com/example/weather-dashboard',
-    demoUrl: 'https://example.github.io/weather-dashboard/',
+    repoUrl: 'https://github.com/Shivin1016/weatherApp',
+    demoUrl: 'https://shivin1016.github.io/weatherApp/',
     difficulty: 'intermediate',
     upvotes: 28,
     hasDemo: true,
     hasReadme: true,
-    previewImage: null,
-    tags: ['React', 'API', 'Charts', 'Responsive']
+    previewImage: "assets/weatherPreview.png",
+    tags: ['JavaScript','HTML', 'CSS', "API'S"]
   },
   {
     id: 3,
