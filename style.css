@@ -1,5 +1,4 @@
-
-        /* Base styles */
+/* Base styles */
         * {
             margin: 0;
             padding: 0;
@@ -332,6 +331,28 @@
             transform: translateY(-2px);
         }
 
+        .tag-filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 10px 0;
+        }
+
+        .tag-filter-btn {
+            padding: 6px 12px;
+            background: #f0f0f0;
+            border: 1px solid #ccc;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .tag-filter-btn.active {
+            background: #007bff;
+            color: #fff;
+            border-color: #007bff;
+        }
+
         /* Projects section */
         .projects-section {
             padding: 2rem 0;
@@ -363,11 +384,36 @@
             transition: all 0.3s ease;
             display: flex;
             flex-direction: column;
+            position: relative;
         }
 
         .project-card:hover {
             transform: translateY(-5px);
             box-shadow: var(--card-hover-shadow);
+        }
+
+        .project-card.top-ranked {
+            border: 2px solid #ffd700;
+            box-shadow: 0 8px 32px rgba(255, 215, 0, 0.2);
+        }
+
+        .rank-badge {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background: linear-gradient(135deg, #ffd700, #ffed4e);
+            color: #333;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 0.9rem;
+            z-index: 10;
+            box-shadow: 0 4px 12px rgba(255, 215, 0, 0.3);
+            border: 2px solid white;
         }
 
 
@@ -462,6 +508,31 @@
             color: #667eea;
         }
 
+        .project-tags {
+            margin-top: 0.5rem;
+            margin-bottom: 5px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .tag-badge {
+            background-color: #e0e0e0;
+            color: #333;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 12px;
+            display: inline-block;
+            white-space: nowrap;
+        }
+/* Dark mode fix for tags */
+body.dark-theme .tag-badge {
+    background-color: rgba(102, 126, 234, 0.2); /* subtle purple tint */
+    color: #ffffff; /* bright white text */
+    border: 1px solid rgba(102, 126, 234, 0.4); /* soft border */
+}
+
+
         .upvote-section {
             display: flex;
             justify-content: space-between;
@@ -483,11 +554,83 @@
             align-items: center;
             gap: 0.5rem;
             transition: all 0.3s ease;
+            position: relative;
         }
 
         .upvote-btn:hover {
             transform: translateY(-1px);
             box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+        }
+
+        .upvote-btn.voted {
+            background: linear-gradient(135deg, #28a745, #20c997);
+            cursor: default;
+        }
+
+        .upvote-btn.voted:hover {
+            transform: none;
+            box-shadow: 0 2px 8px rgba(40, 167, 69, 0.3);
+        }
+
+        .upvote-btn:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+        }
+
+        .upvote-btn:disabled:hover {
+            transform: none;
+            box-shadow: none;
+        }
+
+        /* Notification styles */
+        .vote-notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: white;
+            color: #333;
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            z-index: 1000;
+            transform: translateX(400px);
+            opacity: 0;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            border-left: 4px solid #007bff;
+        }
+
+        .vote-notification.success {
+            border-left-color: #28a745;
+            color: #155724;
+        }
+
+        .vote-notification.success i {
+            color: #28a745;
+        }
+
+        .vote-notification.error {
+            border-left-color: #dc3545;
+            color: #721c24;
+        }
+
+        .vote-notification.error i {
+            color: #dc3545;
+        }
+
+        .vote-notification.show {
+            transform: translateX(0);
+            opacity: 1;
+        }
+
+        /* Dark theme notification styles */
+        .dark-theme .vote-notification {
+            background: var(--card-bg);
+            color: var(--text-color);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
         }
 
 
@@ -1162,3 +1305,78 @@ body.dark-theme button:hover {
 }
 
 
+        #scrollToTopBtn {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 999;
+    background-color: #667eea;
+    color: white;
+    border: none;
+    outline: none;
+    padding: 0.75rem 1rem;
+    border-radius: 50%;
+    font-size: 1.25rem;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    display: none;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+#scrollToTopBtn:hover {
+    background-color: #5a67d8;
+    transform: scale(1.1);
+}
+
+.footer-flex-container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items:flex-start;
+  padding: 30px;
+}
+
+.socials {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+
+.socials li, .quick-links li {
+  list-style-type: none;
+}
+
+.socials li a{
+  color: white;
+  padding: 10px;
+  font-size: larger;
+}
+
+.footer-logo {
+  font-size: 2rem;
+  font-weight: 700;
+  background: white;
+  background-clip: text;
+  margin: 10px;
+}
+
+.quick-links li a{
+  text-decoration: none;
+  color: white;
+}
+
+.quick-links li a:hover, .socials li a:hover{
+  color:#764ba2;
+}
+
+.quick-links li{
+  padding: 3px;
+}
+
+.quick-links ul {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  font-size: 14px;
+  gap: 50px;
+}
