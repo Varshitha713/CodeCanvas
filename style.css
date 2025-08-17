@@ -5,6 +5,74 @@
             box-sizing: border-box;
         }
 
+        
+
+
+
+/* About Section Base Styles */
+.about-section {
+  padding: 80px 20px;
+  border-radius: 8px;
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto;
+  font-family: var(--font-secondary, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif);
+  background-color: var(--card-bg, #f9f9f9);
+  color: var(--text-card, #333);
+  box-shadow: var(--card-shadow, 0 4px 12px rgba(0, 0, 0, 0.05));
+  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* About Section Title */
+.about-section .section-title {
+  font-size: 2.5rem;
+  margin-bottom: 24px;
+  font-weight: 700;
+  color: var(--project-title-color, #333);
+}
+
+/* Paragraph Styles */
+.about-section p {
+  font-size: 1.125rem;
+  line-height: 1.8;
+  margin-bottom: 20px;
+  color: var(--text-card, #333);
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .about-section {
+    padding: 60px 15px;
+  }
+
+  .about-section .section-title {
+    font-size: 2rem;
+  }
+
+  .about-section p {
+    font-size: 1rem;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         /*dark mode toggle*/
         .theme-toggle {
             background: transparent;
