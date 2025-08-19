@@ -1358,55 +1358,110 @@ body.dark-theme button:hover {
     transform: scale(1.1);
 }
 
+.footer {
+  background: #111;
+  color: #f1f1f1;
+  padding: 2rem;
+  font-family: "Poppins", sans-serif;
+}
+
 .footer-flex-container {
   display: flex;
-  justify-content: space-evenly;
-  align-items:flex-start;
-  padding: 30px;
+  justify-content: space-between; /* left and right extreme */
+  align-items: flex-start;
+  padding: 30px 50px; /* space from edges */
+  flex-wrap: wrap;
+}
+
+/* Left section (Logo + Socials) */
+.footer-1 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.footer-logo {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #00bcd4;
 }
 
 .socials {
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: row;
+  gap: 14px;
+  padding: 0;
+  margin: 0;
 }
 
-.socials li, .quick-links li {
-  list-style-type: none;
+.socials li {
+  list-style: none;
 }
 
-.socials li a{
-  color: white;
-  padding: 10px;
-  font-size: larger;
+.socials li a {
+  color: #f1f1f1;
+  font-size: 1.4rem;
+  transition: all 0.3s ease;
 }
 
-.footer-logo {
-  font-size: 2rem;
-  font-weight: 700;
-  background: white;
-  background-clip: text;
-  margin: 10px;
+.socials li a:hover {
+  color: #00bcd4;
+  transform: scale(1.15);
 }
 
-.quick-links li a{
-  text-decoration: none;
-  color: white;
-}
-
-.quick-links li a:hover, .socials li a:hover{
-  color:#764ba2;
-}
-
-.quick-links li{
-  padding: 3px;
+/* Right section (Quick Links) */
+.quick-links {
+  text-align: right; /* align links right */
 }
 
 .quick-links ul {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  font-size: 14px;
-  gap: 50px;
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  gap: 1rem 3rem;
 }
+
+.quick-links li {
+  list-style: none;
+}
+
+.quick-links li a {
+  text-decoration: none;
+  color: #ccc;
+  font-size: 0.95rem;
+  transition: color 0.3s ease;
+}
+
+.quick-links li a:hover {
+  color: #00bcd4;
+}
+
+/* Footer bottom */
+.container {
+  text-align: center;
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255,255,255,0.2);
+  font-size: 0.85rem;
+  color: #aaa;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .footer-flex-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 2rem;
+  }
+
+  .quick-links {
+    text-align: center;
+  }
+
+  .quick-links ul {
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
+  }
+}
+
