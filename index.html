@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+ 
 </head>
 
 <body>
@@ -40,7 +40,7 @@
   </header>
 
   <main>
-    <section class="hero">
+    <section class="hero fade-in">
       <div class="container">
         <h1>Showcase Your Front-End Creations</h1>
         <p>Discover, share, and get inspired by amazing front-end projects from developers around the world. Join the
@@ -49,7 +49,7 @@
       </div>
     </section>
 
-    <section class="container" id="browse">
+    <section class="container fade-in" id="browse">
       <div class="filters">
         <h2><i class="fas fa-filter"></i> Filter Projects</h2>
         <div class="filter-controls">
@@ -93,7 +93,6 @@
         </div>
       </div>
     </section>
-
     <section class="projects-section" id="projects">
       <div class="projects-container">
         <h2 class="section-title">Featured Projects</h2>
@@ -109,9 +108,9 @@
       </div>
     </section>
 
-    <section class="reviews-section" id="reviews" style="cursor:auto;">
-      <h2 class="review-section-title">Developer Reviews</h2>
-      <div class="swiper review-swiper">
+    <section class="reviews-section fade-in" id="reviews" style="cursor:auto;">
+      <h2 class="review-section-title fade-in">Developer Reviews</h2>
+      <div class="swiper review-swiper fade-in">
         <div class="swiper-wrapper">
           <div class="swiper-slide">
             <div class="testimonial">
@@ -167,12 +166,12 @@
             </div>
           </div>
         </div>
-        <div class="swiper-button-prev"><span>&larr;</span></div>
-        <div class="swiper-button-next"><span>&rarr;</span></div>
+        <div class="swiper-button-prev"><span><i class="fa-solid fa-arrow-left"></i></span></div>
+        <div class="swiper-button-next"><span><i class="fas fa-arrow-right"></i></span></div>
       </div>
     </section>
 
-    <section class="contact-section" id="contact" style="padding: 80px 0; color: white">
+    <section class="contact-section fade-in" id="contact" style="padding: 80px 0; color: white">
       <div class="container" id="contact-container" style="max-width: 1000px; margin: 0 auto">
         <h2 class="section-title" style="font-size: 3rem; text-align: center; margin-bottom: 50px; font-weight: bold;">
           Contact Us</h2>
@@ -212,13 +211,12 @@
         <div id="form-status" style="text-align: center; margin-top: 30px; font-size: 1.2rem; display: none;">✅ Message
           sent successfully!</div>
       </div>
-
-
+    </section>
   </main>
 
-  <footer class="footer">
-    <div class="footer-flex-container">
-      <div class="footer-1">
+    <footer class="footer fade-in">
+      <div class="footer-flex-container">
+        <div class="footer-1">
         <div class="footer-logo">CodeCanvas</div>
         <ul class="socials">
           <li><a href="https://github.com/Varshitha713/CodeCanvas" target="_blank"><i
@@ -244,16 +242,15 @@
           </div>
         </ul>
       </div>
-    </div>
-    <div class="container">
-      <p>&copy; 2025 CodeCanvas. Open source project for the developer community.</p>
-      <p>Built with ❤️ for showcasing amazing front-end projects</p>
-    </div>
-  </footer>
-  <button id="scrollToTopBtn" title="Go to top">↑</button>
-
-
-  </section>
+        <div class="container">
+            <p>&copy; 2025 CodeCanvas. Open source project for the developer community.</p>
+            <p>Built with ❤️ for showcasing amazing front-end projects</p>
+        </div>
+    </footer>
+    <button id="scrollToTopBtn" title="Go to top"><i class="fa-solid fa-arrow-up"></i></button>
+   
+    
+    </section>
 
   <div id="message-overlay">
     <div class="overlay-content">
@@ -261,9 +258,7 @@
       <p>Message Delivered</p>
     </div>
   </div>
-  </main>
   <script src="script.js"></script>
-
 </body>
 
 </html>
