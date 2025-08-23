@@ -43,49 +43,73 @@
       </div>
     </section>
 
-    <section class="container fade-in" id="browse">
-      <div class="filters">
-        <h2><i class="fas fa-filter"></i> Filter Projects</h2>
-        <div class="filter-controls">
-          <div class="filter-group search-group">
-            <label for="search-input">Search:</label>
-            <div class="search-container">
-              <i class="fas fa-search search-icon"></i>
-              <input type="text" id="search-input" placeholder="Search projects by title, description, or tags..." />
-              <button class="clear-search" id="clear-search" style="display: none;"><i class="fas fa-times"></i></button>
-            </div>
-          </div>
-          <div class="filter-group">
-            <label for="sort-by">Sort by:</label>
-            <select id="sort-by">
-              <option value="popularity">Most Popular</option>
-              <option value="newest">Newest First</option>
-              <option value="difficulty">Difficulty</option>
-              <option value="alphabetical">A-Z</option>
-            </select>
-          </div>
-          <div class="filter-group">
-            <label for="difficulty">Difficulty:</label>
-            <select id="difficulty">
-              <option value="all">All Levels</option>
-              <option value="beginner">Beginner</option>
-              <option value="intermediate">Intermediate</option>
-              <option value="advanced">Advanced</option>
-            </select>
-          </div>
-          <div class="filter-group">
-            <input type="checkbox" id="has-demo" />
-            <label for="has-demo">Has Open Issues</label>
-          </div>
-          <button class="btn-secondary" id="apply-filters">Apply Filters</button>
-          <button class="btn-secondary" id="reset-filters">Reset</button>
-          <div class="filter-group">
-            <label>Filter by Tech Stack:</label>
-            <div id="tag-filters" class="tag-filters"></div>
-          </div>
+   <section class="container fade-in" id="browse">
+  <div class="filters">
+    <h2><i class="fas fa-filter"></i> Filter Projects</h2>
+
+    <div class="filter-controls">
+      
+      <!-- Search (full width row) -->
+      <div class="filter-group search-group full-width">
+        <label for="search-input">Search:</label>
+        <div class="search-container">
+          <i class="fas fa-search search-icon"></i>
+          <input type="text" id="search-input" placeholder="Search projects by title, description, or tags..." />
+          <button class="clear-search" id="clear-search" style="display: none;">
+            <i class="fas fa-times"></i>
+          </button>
         </div>
       </div>
-    </section>
+
+      <!-- Sort By -->
+      <div class="filter-group">
+        <label for="sort-by">Sort by:</label>
+        <select id="sort-by">
+          <option value="popularity">Most Popular</option>
+          <option value="newest">Newest First</option>
+          <option value="difficulty">Difficulty</option>
+          <option value="alphabetical">A-Z</option>
+        </select>
+      </div>
+
+      <!-- Difficulty -->
+      <div class="filter-group">
+        <label for="difficulty">Difficulty:</label>
+        <select id="difficulty">
+          <option value="all">All Levels</option>
+          <option value="beginner">Beginner</option>
+          <option value="intermediate">Intermediate</option>
+          <option value="advanced">Advanced</option>
+        </select>
+      </div>
+
+      <!-- Has Open Issues -->
+<div class="filter-group checkbox-group">
+  <label class="switch">
+    <input type="checkbox" id="has-demo" />
+    <span class="slider"></span>
+  </label>
+  <span class="switch-label">Has Open Issues</span>
+</div>
+
+
+
+      <!-- Buttons -->
+      <div class="filter-buttons">
+        <button class="btn-primary" id="apply-filters">Apply</button>
+        <button class="btn-primary" id="reset-filters">Reset</button>
+      </div>
+
+      <!-- Tech Stack -->
+      <div class="filter-group full-width">
+        <label>Filter by Tech Stack:</label>
+        <div id="tag-filters" class="tag-filters"></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 
     <section class="projects-section fade-in" id="projects">
       <div class="projects-container fade-in">

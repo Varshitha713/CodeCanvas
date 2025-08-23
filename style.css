@@ -112,7 +112,6 @@ body {
 .fade-in.animate {
   animation: Fadeinup 0.6s ease-out forwards;
 }
-
 /* Header styles */
 .header {
   background: var(--bg-header);
@@ -206,31 +205,53 @@ body {
   margin-right: auto;
 }
 
-/* Filter section */
+/* Light mode filters section */
 .filters {
   background: var(--bg-card);
   color: var(--text-card);
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(14px);
   border-radius: 16px;
-  padding: 2rem;
-  margin: 2rem 0;
-  box-shadow: var(--box-shadow);
+  padding: 25px;
+  margin-top: 60px;
+  border: 2px solid rgba(255, 255, 255, 0.7);
+  box-shadow: 0 0 14px rgba(255, 255, 255, 0.6);
   transition: background 0.3s, color 0.3s, box-shadow 0.3s;
+}
+
+/* Dark mode filters section */
+.dark-theme .filters {
+  background: inherit;
+  backdrop-filter: blur(14px);
+  border-radius: 16px;
+  padding: 25px;
+  margin-top: 60px;
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 0 18px rgba(255, 255, 255, 0.75);
 }
 
 .filters h2 {
   font-size: 1.5rem;
-  margin-bottom: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
   color: var(--project-title-color);
 }
 
+/* Controls grid */
 .filter-controls {
-  display: flex;
-  gap: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
   align-items: center;
-  flex-wrap: wrap;
 }
 
+.full-width {
+  grid-column: 1 / -1;
+}
+
+/* Filter groups */
 .filter-group {
   display: flex;
   align-items: center;
@@ -274,35 +295,41 @@ body {
   align-items: center;
 }
 
+
+/* Search icon */
 .search-icon {
   position: absolute;
   left: 12px;
   color: #666;
+  font-size: 1rem;
   z-index: 1;
 }
 
+/* Search input */
 .search-container input[type="text"] {
   width: 100%;
-  padding: 12px 40px 12px 40px;
-  border: 2px solid #ddd;
-  border-radius: 8px;
+  padding: 12px 42px 12px 38px;
+  border: 1.5px solid rgba(255, 255, 255, 0.25);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.07);
+  color: var(--text-card, var(--text-color));
   font-size: 1rem;
-  background: var(--card-bg);
-  color: var(--text-card);
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .search-container input[type="text"]:focus {
   outline: none;
-  border-color: #667eea;
-  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+  border-color: var(--primary-color, #667eea);
+  box-shadow: 0 0 6px rgba(30, 144, 255, 0.5);
 }
 
+/* Clear search button */
 .clear-search {
   position: absolute;
-  right: 8px;
-  background: none;
+  right: 10px;
+  background: transparent;
   border: none;
+  font-size: 1rem;
   color: #666;
   cursor: pointer;
   padding: 4px;
@@ -314,10 +341,11 @@ body {
 }
 
 .clear-search:hover {
-  background-color: #f0f0f0;
-  color: #333;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--primary-color, #667eea);
 }
 
+/* Dark theme overrides */
 .dark-theme .search-container input[type="text"] {
   border-color: #444;
   background: var(--card-bg);
@@ -325,7 +353,7 @@ body {
 }
 
 .dark-theme .search-container input[type="text"]:focus {
-  border-color: #667eea;
+  border-color: var(--primary-color, #667eea);
 }
 
 .dark-theme .clear-search:hover {
@@ -333,6 +361,103 @@ body {
   color: #fff;
 }
 
+/* Dropdowns */
+.filter-group select {
+  width: 100%;
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1.5px solid rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.07);
+  color: var(--text-card, var(--text-color));
+  font-size: 1rem;
+}
+
+/* Secondary button */
+.btn-secondary {
+  background: white;
+  color: #667eea;
+  border: 2px solid #667eea;
+  padding: 0.75rem 1.5rem;
+  border-radius: 12px;
+  font-weight: 600;
+}
+
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* 🔍 Search Box */
+.search-container {
+  position: relative;
+  width: 100%;
+}
+
+.search-container input {
+  width: 100%;
+  padding: 12px 40px 12px 40px; /* balanced padding */
+  border: 1.8px solid #ddd;
+  border-radius: 10px;
+  background: var(--card-bg, rgba(255, 255, 255, 0.07));
+  color: var(--text-card, var(--text-color));
+  font-size: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.search-container input:focus {
+  border-color: var(--primary-color, #667eea);
+  box-shadow: 0 0 6px rgba(30, 144, 255, 0.4);
+  outline: none;
+}
+
+.search-container .search-icon,
+.search-icon {
+  position: absolute;
+  left: 12px;
+  color: #666;
+  font-size: 1rem;
+  z-index: 1;
+}
+
+.search-container .clear-search,
+.clear-search {
+  position: absolute;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 1rem;
+  color: #666;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.search-container .clear-search:hover,
+.clear-search:hover {
+  background-color: #f0f0f0;
+  color: var(--primary-color, #333);
+}
+
+/* 🌙 Dark Theme */
+.dark-theme .search-container input {
+  border-color: #444;
+  background: var(--card-bg);
+  color: var(--text-card);
+}
+
+.dark-theme .search-container input:focus {
+  border-color: var(--primary-color, #667eea);
+}
+
+.dark-theme .clear-search:hover {
+  background-color: #444;
+  color: #fff;
+}
+
+/* 🎨 Buttons */
 .btn-secondary {
   background: white;
   color: #667eea;
@@ -350,6 +475,7 @@ body {
   transform: translateY(-2px);
 }
 
+/* 📌 Tag Filters */
 .tag-filters {
   display: flex;
   flex-wrap: wrap;
@@ -357,190 +483,110 @@ body {
   margin: 10px 0;
 }
 
-.tag-filter-btn {
+.tag {
+  background: var(--tag-bg, #eee);
+  color: var(--tag-text, #333);
   padding: 6px 12px;
-  background: #f0f0f0;
-  border: 1px solid #ccc;
-  border-radius: 20px;
+  border-radius: 6px;
+  font-size: 0.875rem;
   cursor: pointer;
   transition: background 0.3s;
 }
 
-.tag-filter-btn.active {
-  background: #007bff;
-  color: #fff;
-  border-color: #007bff;
-}
-
-/* Projects section */
-.projects-section {
-  padding: 2rem 0;
-}
-
-.section-title {
-  font-size: 2rem;
-  font-weight: 700;
+.tag:hover {
+  background: var(--primary-color, #667eea);
   color: white;
-  margin-bottom: 2rem;
-  text-align: center;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 2rem;
-  margin-bottom: 3rem;
-}
-
-.project-card {
-  background: var(--card-bg);
-  backdrop-filter: blur(10px);
-  border-radius: 16px;
-  padding: 1.5rem;
-  box-shadow: var(--card-shadow);
-  border: 1px solid var(--card-border);
+/* ⬇️ Dropdowns */
+.filter-group select {
+  width: 100%;
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1.5px solid rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.07);
+  color: var(--text-color);
+  font-size: 1rem;
   transition: all 0.3s ease;
+}
+
+.filter-group select:hover,
+.filter-group select:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 5px rgba(30, 144, 255, 0.4);
+  outline: none;
+}
+
+/* ☑️ Checkbox Group */
+.checkbox-group {
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+/* 🔘 Toggle Switch */
+.toggle-switch {
   position: relative;
+  width: 50px;
+  height: 24px;
 }
 
-.project-card:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--card-hover-shadow);
+.toggle-switch input {
+  display: none;
 }
 
-.project-card.top-ranked {
-  border: 2px solid #ffd700;
-  box-shadow: 0 8px 32px rgba(255, 215, 0, 0.2);
-}
-
-.rank-badge {
+.toggle-slider {
   position: absolute;
-  top: -10px;
-  right: -10px;
-  background: linear-gradient(135deg, #ffd700, #ffed4e);
-  color: #333;
-  width: 40px;
-  height: 40px;
+  cursor: pointer;
+  background: #ccc;
+  border-radius: 24px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transition: background 0.3s;
+}
+
+.toggle-slider::before {
+  content: "";
+  position: absolute;
+  height: 18px;
+  width: 18px;
   border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: bold;
-  font-size: 0.9rem;
-  z-index: 10;
-  box-shadow: 0 4px 12px rgba(255, 215, 0, 0.3);
-  border: 2px solid white;
+  background: white;
+  left: 3px;
+  bottom: 3px;
+  transition: transform 0.3s;
 }
 
-.project-image {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 12px;
-  margin-bottom: 1rem;
+.toggle-switch input:checked + .toggle-slider {
+  background: var(--primary-color);
 }
 
-.project-placeholder {
-  width: 100%;
-  height: 200px;
-  background: var(--placeholder-bg);
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 1rem;
-  color: var(--placeholder-text);
-  font-weight: 500;
+.toggle-switch input:checked + .toggle-slider::before {
+  transform: translateX(26px);
 }
 
-.project-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 1rem;
-}
-
-.project-title {
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: var(--project-title-color);
-}
-
-.repo-link {
-  color: #667eea;
-  font-size: 1.5rem;
+/* 🎛️ Filter Buttons */
+.filter-btn {
+  padding: 8px 16px;
+  border-radius: 8px;
+  background: var(--btn-bg, #eee);
+  color: var(--btn-text, #333);
+  cursor: pointer;
   transition: all 0.3s ease;
 }
 
-.repo-link:hover {
-  color: #764ba2;
-  transform: scale(1.1);
+.filter-btn.active {
+  background: var(--primary-color);
+  color: white;
 }
 
-.difficulty-badge {
-  display: inline-block;
-  padding: 0.25rem 0.75rem;
-  border-radius: 20px;
-  font-size: 0.875rem;
-  font-weight: 600;
-  margin-bottom: 1rem;
+.filter-btn:hover {
+  background: var(--primary-hover, #667eea);
+  color: white;
 }
 
-.difficulty-beginner {
-  background: rgba(34, 197, 94, 0.1);
-  color: #22c55e;
-}
-
-.difficulty-intermediate {
-  background: rgba(251, 191, 36, 0.1);
-  color: #fbbf24;
-}
-
-.difficulty-advanced {
-  background: rgba(239, 68, 68, 0.1);
-  color: #ef4444;
-}
-
-.project-description {
-  color: #666;
-  margin-bottom: 1rem;
-  line-height: 1.6;
-  flex-grow: 1;
-}
-
-.project-meta {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 0.875rem;
-  color: #888;
-  margin-bottom: 1rem;
-}
-
-.meta-icon {
-  color: #667eea;
-}
-
-.project-tags {
-  margin-top: 0.5rem;
-  margin-bottom: 5px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-}
-
-.tag-badge {
-  background-color: #e0e0e0;
-  color: #333;
-  padding: 4px 8px;
-  border-radius: 12px;
-  font-size: 12px;
-  display: inline-block;
-  white-space: nowrap;
-}
 /* Dark mode fix for tags */
 body.dark-theme .tag-badge {
   background-color: rgba(102, 126, 234, 0.2); /* subtle purple tint */

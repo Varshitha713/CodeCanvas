@@ -638,3 +638,16 @@ entries.forEach((entry, index) => {
   }
 });
 
+
+  const reviewSwiper = new Swiper(".review-swiper", {
+    loop: true,
+    autoplay: {
+      delay: 4000, // 4 seconds per slide
+      disableOnInteraction: false, // keeps autoplay after manual swipe
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    speed: 700, // smooth transition
+  });
