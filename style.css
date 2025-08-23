@@ -498,6 +498,40 @@ body {
   color: white;
 }
 
+/* 🏷️ Tag Badges */
+.tag-badge {
+  display: inline-block;
+  background: var(--primary-color, #667eea);
+  color: white;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  margin-right: 6px;
+  margin-bottom: 6px;
+  white-space: nowrap;
+}
+
+.tag-badge.secondary {
+  background: #eee;
+  color: #333;
+}
+
+.tag-badge.success {
+  background: #28a745;
+  color: white;
+}
+
+.tag-badge.warning {
+  background: #ffc107;
+  color: #333;
+}
+
+.tag-badge.danger {
+  background: #dc3545;
+  color: white;
+}
+
 /* ⬇️ Dropdowns */
 .filter-group select {
   width: 100%;
@@ -586,6 +620,7 @@ body {
   background: var(--primary-hover, #667eea);
   color: white;
 }
+
 
 /* Dark mode fix for tags */
 body.dark-theme .tag-badge {
