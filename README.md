@@ -1,12 +1,12 @@
 # CodeCanvas: Discover, Share, and Get Inspired! ✨
 
-Welcome to **CodeCanvas**, a vibrant community platform where developers from around the globe can showcase their amazing front-end projects, get inspired, and connect with fellow creators. Whether you're a seasoned pro or just starting your journey, this is the perfect place to share your creativity and explore innovative designs.
+Welcome to CodeCanvas, a vibrant community platform where developers from around the globe can showcase their amazing front-end projects, get inspired, and connect with fellow creators. Whether you're a seasoned pro or just starting your journey, this is the perfect place to share your creativity and explore innovative designs.
 
 ## About the Project 🌟
 
 CodeCanvas aims to be a go-to hub for front-end developers to display their work, discover new techniques, and foster a collaborative environment. We believe in the power of sharing and learning from each other, making front-end development more accessible and exciting for everyone.
 
-##SCREENSHOTS
+## SCREENSHOTS
 
 <img width="1848" height="873" alt="image" src="https://github.com/user-attachments/assets/70fc2f4c-d973-4821-951d-15247f791402" />
 <img width="1892" height="873" alt="image" src="https://github.com/user-attachments/assets/489c2b11-3ad2-4d48-a535-3567df34bdf6" />
@@ -27,6 +27,19 @@ CodeCanvas is built with the foundational technologies of web development, ensur
 * **HTML:** For structuring the content and layout of the web pages.
 * **CSS:** For styling the user interface, creating an engaging and responsive design.
 * **JavaScript:** For adding interactivity and dynamic functionalities to the platform.
+
+## Project Structure 📂
+
+CodeCanvas/
+│── index.html          # Entry point of the project
+│── src/                # Core CSS and JS files
+│   ├── css/            # Stylesheets
+│   └── js/             # Scripts
+│── assets/             # Images, icons, fonts
+│── tests/              # Test files
+│── config/             # Configuration files
+│── README.md           # Documentation
+│── CONTRIBUTING.md     # Contribution guidelines
 
 ## Open Source Ready Features ✅
 
@@ -62,7 +75,7 @@ We'd love for you to contribute to CodeCanvas! Here's how you can get started:
 5. **Commit** your changes and **push** them to your forked repository.
 6. Create a **pull request** to the `main` branch of this repository, describing your contributions.
 
-Please refer to our `CONTRIBUTING.md` (coming soon!) for more detailed guidelines.
+Please refer to our [Contributing Guidelines](CONTRIBUTING.md) for more detailed instructions.
 
 ## Get in Touch 💬
 
