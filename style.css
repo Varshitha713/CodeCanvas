@@ -1585,3 +1585,163 @@ body.dark-theme button:hover {
   font-size: 14px;
   gap: 50px;
 }
+/* about page */
+.about-us{
+  background: var(--bg-card);
+  color: var(--text-card);
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: var(--box-shadow);
+  margin-top: 2rem;
+  transition: background 0.3s, color 0.3s, box-shadow 0.3s;
+  text-align: center;
+}
+
+.about-start {
+padding: 4rem 2rem;
+background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+color: #343a40;
+font-family: 'Segoe UI', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.about-us {
+max-width: 1200px;
+margin: 0 auto;
+position: relative;
+}
+
+.about-us h1 {
+font-size: 3rem;
+margin-bottom: 2rem;
+background: linear-gradient(90deg, #3a0ca3 0%, #7209b7 50%, #f72585 100%);
+-webkit-background-clip: text;
+background-clip: text;
+color: transparent;
+font-weight: 800;
+text-align: center;
+}
+
+.about-us p {
+font-size: 1.1rem;
+line-height: 1.8;
+margin-bottom: 2rem;
+color: #495057;
+}
+
+/* Section Headers */
+.choose h2,
+.mission h2,
+.values h2 {
+font-size: 2rem;
+margin: 2.5rem 0 1.5rem;
+color: #3a0ca3;
+position: relative;
+display: inline-block;
+}
+
+.choose h2::after,
+.mission h2::after,
+.values h2::after {
+content: '';
+position: absolute;
+bottom: -8px;
+left: 0;
+width: 60px;
+height: 4px;
+background: linear-gradient(90deg, #f72585 0%, #7209b7 100%);
+border-radius: 2px;
+}
+
+/* Lists Styling */
+.choose-list,
+.mission ul,
+.values ui {
+display: grid;
+gap: 1rem;
+padding-left: 1.5rem;
+}
+
+.choose-list li,
+.mission ul li,
+.values ui li {
+position: relative;
+padding-left: 2rem;
+line-height: 1.6;
+font-size: 1.05rem;
+}
+
+.choose-list li::before,
+.mission ul li::before {
+content: '▹';
+position: absolute;
+left: 0;
+color: #f72585;
+font-size: 1.2rem;
+}
+
+.values ui li {
+list-style: none;
+padding: 0.8rem 1.5rem;
+background: rgba(255, 255, 255, 0.8);
+border-radius: 8px;
+box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+transition: transform 0.2s, box-shadow 0.2s;
+display: flex;
+align-items: center;
+gap: 0.5rem;
+}
+
+.values ui li:hover {
+transform: translateY(-3px);
+box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Involve Section */
+.involve {
+margin-top: 3rem;
+padding: 2rem;
+background: linear-gradient(135deg, rgba(58, 12, 163, 0.1) 0%, rgba(114, 9, 183, 0.1) 100%);
+border-radius: 12px;
+border-left: 4px solid #f72585;
+text-align: center;
+font-style: italic;
+font-size: 1.15rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+.about-start {
+  padding: 2rem 1rem;
+}
+
+.about-us h1 {
+  font-size: 2.2rem;
+}
+
+.choose h2,
+.mission h2,
+.values h2 {
+  font-size: 1.6rem;
+}
+
+.values ui li {
+  padding: 0.6rem 1rem;
+}
+}
+
+/* Animation */
+@keyframes fadeIn {
+from { opacity: 0; transform: translateY(20px); }
+to { opacity: 1; transform: translateY(0); }
+}
+
+.about-us > * {
+animation: fadeIn 0.6s ease-out forwards;
+}
+
+.about-us > *:nth-child(1) { animation-delay: 0.1s; }
+.about-us > *:nth-child(2) { animation-delay: 0.2s; }
+.choose { animation-delay: 0.3s !important; }
+.mission { animation-delay: 0.4s !important; }
+.values { animation-delay: 0.5s !important; }
+.involve { animation-delay: 0.6s !important; }
