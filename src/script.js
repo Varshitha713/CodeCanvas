@@ -18,14 +18,14 @@ const sampleProjects = [
     id: 2,
     title: 'Weather Dashboard',
     description: 'A responsive weather application with beautiful animations and detailed forecasts. Features location-based weather data and interactive charts.',
-    repoUrl: 'https://github.com/example/weather-dashboard',
-    demoUrl: 'https://example.github.io/weather-dashboard/',
+    repoUrl: 'https://github.com/Shivin1016/weatherApp',
+    demoUrl: 'https://shivin1016.github.io/weatherApp/',
     difficulty: 'intermediate',
     upvotes: 28,
     hasDemo: true,
     hasReadme: true,
-    previewImage: null,
-    tags: ['React', 'API', 'Charts', 'Responsive']
+    previewImage: "assets/weatherPreview.png",
+    tags: ['JavaScript','HTML', 'CSS', "API"]
   },
   {
     id: 3,
@@ -523,27 +523,41 @@ const sampleProjects = [
                 alert("Please fill in all fields.");
                 return false;
             }
+            if (name.length < 4) {
+                alert("First Name must be at least 4 letters.");
+                return false;
+            }
+            if (lastname.length < 4) {
+                alert("Last Name must be at least 4 letters.");
+                return false;
+            }
             const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
             if (!email.match(emailPattern)) {
                 alert("Please enter a valid email.");
                 return false;
             }
+            // Message must have at least 3 words
+            const wordCount = message.split(/\s+/).filter(Boolean).length;
+            if (wordCount < 3) {
+                alert("Message must be at least 3 words.");
+                return false;
+            }
 
-                // Show the overlay
-                const overlay = document.getElementById("message-overlay");
-                overlay.style.opacity = "1";
-                overlay.style.pointerEvents = "auto";
+            // Show the overlay
+            const overlay = document.getElementById("message-overlay");
+            overlay.style.opacity = "1";
+            overlay.style.pointerEvents = "auto";
 
-                // Hide the overlay after 3 seconds
-                setTimeout(() => {
-                    overlay.style.opacity = "0";
-                    overlay.style.pointerEvents = "none";
-                }, 3000);
+            // Hide the overlay after 3 seconds
+            setTimeout(() => {
+                overlay.style.opacity = "0";
+                overlay.style.pointerEvents = "none";
+            }, 3000);
 
-                // Clear form
-                document.getElementById("contact-form").reset();
+            // Clear form
+            document.getElementById("contact-form").reset();
 
-                return false; // Prevent actual form submission
+            return false; // Prevent actual form submission
         }
 
             const toggle = document.getElementById('darkModeToggle');
@@ -601,3 +615,39 @@ scrollToTopBtn.addEventListener("click", () => {
         behavior: "smooth"
     });
 });
+document.addEventListener("DOMContentLoaded", () => {
+  const faders = document.querySelectorAll('.fade-in');
+
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('animate');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  faders.forEach(fade => observer.observe(fade));
+});
+entries.forEach((entry, index) => {
+  if (entry.isIntersecting) {
+    setTimeout(() => {
+      entry.target.classList.add('animate');
+    }, index * 100); // 100ms delay between cards
+    observer.unobserve(entry.target);
+  }
+});
+
+
+  const reviewSwiper = new Swiper(".review-swiper", {
+    loop: true,
+    autoplay: {
+      delay: 4000, // 4 seconds per slide
+      disableOnInteraction: false, // keeps autoplay after manual swipe
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    speed: 700, // smooth transition
+  });
