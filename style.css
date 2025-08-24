@@ -206,63 +206,238 @@
             margin-left: auto;
             margin-right: auto;
         }
+/* Light mode filters section */
+.filters {
+  background: inherit; /* same as page background */
+  backdrop-filter: blur(14px);
+  border-radius: 16px;
+  padding: 25px;
+  margin-top: 60px;
+  border: 2px solid rgba(255, 255, 255, 0.7); /* glowing white border */
+  box-shadow: 0 0 14px rgba(255, 255, 255, 0.6); /* white glow */
+}
 
-        /* Filter section */
-        .filters {
-            background: var(--bg-card);
-            color: var(--text-card);
-            backdrop-filter: blur(10px);
-            border-radius: 16px;
-            padding: 2rem;
-            margin: 2rem 0;
-            box-shadow: var(--box-shadow);
-            transition: background 0.3s, color 0.3s, box-shadow 0.3s;
-        }
+/* Dark mode filters section */
+.dark-theme .filters {
+  background: inherit;
+  backdrop-filter: blur(14px);
+  border-radius: 16px;
+  padding: 25px;
+  margin-top: 60px;
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 0 18px rgba(255, 255, 255, 0.75); /* stronger white glow */
+}
 
 
-        .filters h2 {
-            font-size: 1.5rem;
-            margin-bottom: 1.5rem;
-            color: var(--project-title-color);
-        }
 
-        .filter-controls {
-            display: flex;
-            gap: 2rem;
-            align-items: center;
-            flex-wrap: wrap;
-        }
+.filters h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--text-color);
+}
 
-        .filter-group {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
+/* Controls grid */
+.filter-controls {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+  align-items: center;
+}
 
-        .filter-group label {
-            font-weight: 500;
-            color: #555;
-        }
+.full-width {
+  grid-column: 1 / -1;
+}
 
-        .filter-group select {
-            padding: 0.5rem;
-            border: 2px solid #e1e5e9;
-            border-radius: 8px;
-            background: white;
-            font-family: inherit;
-            transition: border-color 0.3s ease;
-        }
+/* Search */
+.search-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
 
-        .filter-group select:focus {
-            outline: none;
-            border-color: #667eea;
-        }
+.search-container input {
+  width: 100%;
+  padding: 12px 42px 12px 38px;
+  border: 1.5px solid rgba(255, 255, 255, 0.25);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.07);
+  color: var(--text-color);
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
 
-        .filter-group input[type="checkbox"] {
-            width: 20px;
-            height: 20px;
-            accent-color: #667eea;
-        }
+.search-container input:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 6px rgba(30, 144, 255, 0.5);
+  outline: none;
+}
+
+.search-container .search-icon {
+  position: absolute;
+  left: 12px;
+  color: #aaa;
+  font-size: 1rem;
+}
+
+.search-container .clear-search {
+  position: absolute;
+  right: 10px;
+  background: transparent;
+  border: none;
+  font-size: 1rem;
+  color: #aaa;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.search-container .clear-search:hover {
+  color: var(--primary-color);
+}
+
+/* Dropdowns */
+.filter-group select {
+  width: 100%;
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1.5px solid rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.07);
+  color: var(--text-color);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.filter-group select:hover,
+.filter-group select:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 5px rgba(30, 144, 255, 0.4);
+  outline: none;
+}
+
+/* Checkbox */
+/* Toggle Switch for "Has Open Issues" */
+.checkbox-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 46px;
+  height: 24px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* Slider (track) */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0; left: 0;
+  right: 0; bottom: 0;
+  background: #fff; /* White when OFF */
+  border: 1.5px solid rgba(0, 0, 0, 0.2); 
+  border-radius: 34px;
+  transition: all 0.3s ease;
+}
+
+/* The knob */
+.slider::before {
+  position: absolute;
+  content: "";
+  height: 16px; width: 16px;
+  left: 3px; bottom: 3px;
+  background: #fff;
+  border-radius: 50%;
+  transition: 0.3s ease;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+}
+
+/* Checked state (ON) */
+.switch input:checked + .slider {
+  background: var(--primary-color);
+  border-color: var(--primary-color);
+  box-shadow: 0 0 6px var(--primary-color); /* glowing border */
+}
+
+.switch input:checked + .slider::before {
+  transform: translateX(20px);
+  background: #fff;
+  border-color: white;
+}
+
+/* Hover effect */
+.switch:hover .slider {
+  border-color: #000;
+}
+
+.switch-label {
+  font-size: 0.95rem;
+  color: var(--text-color);
+  font-weight: 500;
+}
+
+
+/* Buttons */
+.filter-buttons {
+  display: flex;
+  gap: 12px;
+}
+
+.filter-buttons button {
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  background: transparent;
+  color: var(--text-color);
+  border: 1.5px solid rgba(255, 255, 255, 0.6);
+  transition: all 0.3s ease;
+}
+
+.filter-buttons button:hover {
+  border-color: #000;
+  background: rgba(0, 0, 0, 0.05);
+  transform: translateY(-1px);
+}
+
+/* Tag Filters */
+.tag-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 5px;
+}
+
+.tag-filters .tag {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 6px 12px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-color);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.tag-filters .tag:hover {
+  background: var(--primary-color);
+  color: #fff;
+  transform: scale(1.05);
+}
+
 
         /* Search styles */
         .search-group {
