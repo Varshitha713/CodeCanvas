@@ -1,6 +1,6 @@
 # CodeCanvas: Discover, Share, and Get Inspired! ✨
 
-Welcome to **CodeCanvas**, a vibrant community platform where developers from around the globe can showcase their amazing front-end projects, get inspired, and connect with fellow creators. Whether you're a seasoned pro or just starting your journey, this is the perfect place to share your creativity and explore innovative designs.
+Welcome to CodeCanvas, a vibrant community platform where developers from around the globe can showcase their amazing front-end projects, get inspired, and connect with fellow creators. Whether you're a seasoned pro or just starting your journey, this is the perfect place to share your creativity and explore innovative designs.
 
 [![Open Source](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](https://github.com/Varshitha713/CodeCanvas)
 
@@ -102,12 +102,21 @@ CodeCanvas is built with the foundational technologies of web development, ensur
 * **CSS:** For styling the user interface, creating an engaging and responsive design.
 * **JavaScript:** For adding interactivity and dynamic functionalities to the platform.
 
+## Project Structure 📂
+
+│── index.html          # Entry point of the project
+│── src/                # Core CSS and JS files
+│   ├── css/            # Stylesheets
+│   └── js/             # Scripts
+│── assets/             # Images, icons, fonts
+│── tests/              # Test files
+│── config/             # Configuration files
+│── README.md           # Documentation
+│── CONTRIBUTING.md     # Contribution guidelines
 <div align="center">
   <img src="https://user-images.githubusercontent.com/74038190/212284115-f47cd8ff-2ffb-4b04-b5bf-4d1c14c0247f.gif" width="1000">
-</div>
 
 ## Open Source Ready Features ✅
-
 This project is meticulously designed to be **excellent for open source contributions**. We've focused on simplicity, clarity, and extensibility to ensure a smooth experience for anyone looking to contribute.
 
 <div align="center">
@@ -152,6 +161,7 @@ We'd love for you to contribute to CodeCanvas! Here's how you can get started:
 5. **Commit** your changes and **push** them to your forked repository.
 6. Create a **pull request** to the `main` branch of this repository, describing your contributions.
 
+Please refer to our [Contributing Guidelines](CONTRIBUTING.md) for more detailed instructions.
 <div align="center">
   <img src="https://user-images.githubusercontent.com/74038190/212284115-f47cd8ff-2ffb-4b04-b5bf-4d1c14c0247f.gif" width="1000">
 </div>

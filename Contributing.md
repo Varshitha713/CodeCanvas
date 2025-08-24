@@ -33,7 +33,15 @@ git checkout -b feature-name
 ```
 
 ### 5. Make your changes
-Follow the **code structure** of the project. Test your changes locally by opening `index.html` in your browser.
+Follow the **project structure** strictly:
+
+- Keep `index.html` at the root.
+- Place CSS & JS files inside the `src/` folder.
+- Store images, icons, and fonts inside the `assets/` folder.
+- Add configuration files (like ESLint, Prettier, etc.) in the `config/` folder if needed.
+- Write or update test files inside the `tests/` folder.
+
+After making changes, test them locally by opening `index.html` in your browser.
 
 ### 6. Commit your changes
 Write a meaningful commit message:
