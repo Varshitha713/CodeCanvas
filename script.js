@@ -44,13 +44,13 @@ const sampleProjects = [
     id: 4,
     title: 'Portfolio Website',
     description: 'A modern, responsive portfolio website with smooth animations, dark mode toggle, and optimized performance. Great starting point for personal branding.',
-    repoUrl: 'https://github.com/example/portfolio',
-    demoUrl: 'https://example.github.io/portfolio/',
-    difficulty: 'beginner',
+    repoUrl: 'https://github.com/Nsanjayboruds/Template-hub',
+    demoUrl: 'https://templateshub.netlify.app/',
+    difficulty: 'intermediate',
     upvotes: 31,
     hasDemo: true,
     hasReadme: true,
-    previewImage: null,
+    previewImage: 'assets/templates.png',
     tags: ['HTML', 'CSS', 'JavaScript', 'Responsive']
   },
   {
@@ -91,7 +91,21 @@ const sampleProjects = [
     hasReadme: true,
     previewImage: 'assets/GeneratePassword.png',
     tags: ['HTML', 'CSS', 'JavaScript', 'Responsive']
-  }
+  },
+  {
+  id: 8,
+  title: 'Unit Converter',
+  description: 'A simple and responsive unit converter that allows users to convert between length, weight, and temperature with real-time results.',
+  repoUrl: 'https://github.com/Bhavya0420/UnitConverter',
+  demoUrl: 'https://bhavya0420.github.io/UnitConverter/',
+  difficulty: 'intermediate',
+  upvotes: 20,
+  hasDemo: true,
+  hasReadme: true,
+  previewImage: 'assets/UnitConverter.png',
+  tags: ['HTML', 'CSS', 'JavaScript', 'Responsive']
+}
+
 ];
 
 
