@@ -104,7 +104,21 @@ const sampleProjects = [
   hasReadme: true,
   previewImage: 'assets/UnitConverter.png',
   tags: ['HTML', 'CSS', 'JavaScript', 'Responsive']
+},
+{
+  id: 9,
+  title: 'Basic Calculator',
+  description: 'A modern and responsive calculator built with HTML, CSS, and JavaScript. Supports basic arithmetic operations with error handling and formatted results.',
+  repoUrl: 'https://github.com/sowmyakurapati26/BasicCalculator',
+  demoUrl: 'https://sowmyakurapati26.github.io/BasicCalculator/',
+  difficulty: 'beginner',
+  upvotes: 17,
+  hasDemo: true,
+  hasReadme: true,
+  previewImage: 'assets/BasicCalculator.png',
+  tags: ['HTML', 'CSS', 'JavaScript', 'Responsive']
 }
+
 
 ];
 
