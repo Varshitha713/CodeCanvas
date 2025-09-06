@@ -1,6 +1,6 @@
 # CodeCanvas: Discover, Share, and Get Inspired! ✨
 
-Welcome to **CodeCanvas**, a vibrant community platform where developers from around the globe can showcase their amazing front-end projects, get inspired, and connect with fellow creators. Whether you're a seasoned pro or just starting your journey, this is the perfect place to share your creativity and explore innovative designs.
+Welcome to CodeCanvas, a vibrant community platform where developers from around the globe can showcase their amazing front-end projects, get inspired, and connect with fellow creators. Whether you're a seasoned pro or just starting your journey, this is the perfect place to share your creativity and explore innovative designs.
 
 [![Open Source](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](https://github.com/Varshitha713/CodeCanvas)
 
@@ -105,6 +105,18 @@ CodeCanvas is built with the foundational technologies of web development, ensur
 <div align="center">
   <img src="https://user-images.githubusercontent.com/74038190/212284115-f47cd8ff-2ffb-4b04-b5bf-4d1c14c0247f.gif" width="1000">
 </div>
+## Project Structure 📂
+
+CodeCanvas/
+│── index.html          # Entry point of the project
+│── src/                # Core CSS and JS files
+│   ├── css/            # Stylesheets
+│   └── js/             # Scripts
+│── assets/             # Images, icons, fonts
+│── tests/              # Test files
+│── config/             # Configuration files
+│── README.md           # Documentation
+│── CONTRIBUTING.md     # Contribution guidelines
 
 ## Open Source Ready Features ✅
 
@@ -155,6 +167,7 @@ We'd love for you to contribute to CodeCanvas! Here's how you can get started:
 <div align="center">
   <img src="https://user-images.githubusercontent.com/74038190/212284115-f47cd8ff-2ffb-4b04-b5bf-4d1c14c0247f.gif" width="1000">
 </div>
+Please refer to our [Contributing Guidelines](CONTRIBUTING.md) for more detailed instructions.
 
 ### 🙌 **Thank You, Contributors!**
 
