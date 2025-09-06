@@ -1,0 +1,505 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet">
+    <style>:root {
+  --bg-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --text-color: #333;
+  --bg-header: #fffffff2;
+  --header-border: #ffffff2e;
+  --nav-link-color: #333;
+  --nav-link-hover-bg: #667eea1a;
+  --toggle-border: #ddd;
+  --toggle-icon: #333;
+  --toggle-hover: #f0f0f0;
+  --bg-card: #fffffff2;
+  --text-card: #333;
+  --box-shadow: 0 8px 32px #1f26875e;
+}
+
+.dark-theme {
+  --bg-gradient: linear-gradient(135deg, #1a1445 0%, #2c1d5c 100%);
+  --text-color: #e4e4f0;
+  --bg-header: #1e193ce6;
+  --header-border: #ffffff0d;
+  --nav-link-color: #f1f1f1;
+  --nav-link-hover-bg: #ffffff1a;
+  --toggle-border: #888;
+  --toggle-icon: #f9f9f9;
+  --toggle-hover: #333;
+  --bg-card: #1e193ce6;
+  --text-card: #eee;
+  --box-shadow: 0 8px 32px #0006;
+}
+
+body {
+  background: var(--bg-gradient);
+  color: var(--text-color);
+  min-height: 100vh;
+  font-family: Inter, sans-serif;
+  transition: background .3s, color .3s;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.header {
+  background: var(--bg-header);
+  backdrop-filter: blur(10px);
+  box-shadow: var(--box-shadow);
+  border-bottom: 1px solid var(--header-border);
+  z-index: 100;
+  padding: 1rem 0;
+  transition: background .3s, border-bottom .3s, box-shadow .3s;
+  position: sticky;
+  top: 0;
+}
+
+.header-content {
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  display: flex;
+}
+
+.logo {
+  -webkit-text-fill-color: transparent;
+  background: linear-gradient(135deg, #667eea, #764ba2) text;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.nav {
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2rem;
+  display: flex;
+}
+
+.nav-link {
+  color: var(--nav-link-color);
+  border-radius: 8px;
+  padding: .5rem 1rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all .3s;
+  position: relative;
+}
+
+.nav-link:hover {
+  background: var(--nav-link-hover-bg);
+  transform: translateY(-2px);
+}
+
+.btn-primary {
+  color: #fff;
+  cursor: pointer;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  border: none;
+  border-radius: 12px;
+  padding: .75rem 1.5rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all .3s;
+  display: inline-block;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px #667eea4d;
+}
+
+.theme-toggle {
+  border: 2px solid var(--toggle-border);
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  color: var(--toggle-icon);
+  background: none;
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  transition: background .3s, transform .3s;
+  display: flex;
+  box-shadow: 0 2px 8px #0000001a;
+}
+
+.theme-toggle:hover {
+  background: var(--toggle-hover);
+  transform: scale(1.1);
+}
+
+.theme-toggle span {
+  transition: transform .3s, opacity .3s;
+}
+
+.about-us {
+  background: var(--bg-card);
+  color: var(--text-card);
+  box-shadow: var(--box-shadow);
+  text-align: center;
+  border-radius: 16px;
+  margin-top: 2rem;
+  padding: 2rem;
+  transition: background .3s, color .3s, box-shadow .3s;
+}
+
+.about-start {
+  color: #343a40;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  padding: 4rem 2rem;
+  font-family: Segoe UI, Inter, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.dark-theme .about-start {
+  color: #e4e4f0;
+  background: linear-gradient(135deg, #1a1445 0%, #2c1d5c 100%);
+}
+
+.about-us {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.about-us h1 {
+  color: #0000;
+  text-align: center;
+  background: linear-gradient(90deg, #3a0ca3 0%, #7209b7 50%, #f72585 100%) text;
+  margin-bottom: 2rem;
+  font-size: 3rem;
+  font-weight: 800;
+}
+
+.about-us p {
+  color: var(--text-card);
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+.choose h2, .mission h2, .values h2 {
+  color: #3a0ca3;
+  margin: 2.5rem 0 1.5rem;
+  font-size: 2rem;
+  display: inline-block;
+  position: relative;
+}
+
+.dark-theme .choose h2, .dark-theme .mission h2, .dark-theme .values h2 {
+  color: #a78bfa;
+}
+
+.choose h2:after, .mission h2:after, .values h2:after {
+  content: "";
+  background: linear-gradient(90deg, #f72585 0%, #7209b7 100%);
+  border-radius: 2px;
+  width: 60px;
+  height: 4px;
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+}
+
+.choose-list, .mission ul, .values ul {
+  gap: 1rem;
+  padding-left: 1.5rem;
+  display: grid;
+}
+
+.choose-list li, .mission ul li, .values ul li {
+  color: var(--text-card);
+  padding-left: 2rem;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  position: relative;
+}
+
+.choose-list li:before, .mission ul li:before {
+  content: "▹";
+  color: #f72585;
+  font-size: 1.2rem;
+  position: absolute;
+  left: 0;
+}
+
+.values ul li {
+  background: #fffc;
+  border-radius: 8px;
+  align-items: center;
+  gap: .5rem;
+  padding: .8rem 1.5rem;
+  list-style: none;
+  transition: transform .2s, box-shadow .2s;
+  display: flex;
+  box-shadow: 0 2px 8px #0000000d;
+}
+
+.dark-theme .values ul li {
+  background: #ffffff1a;
+  box-shadow: 0 2px 8px #0003;
+}
+
+.values ul li:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px #0000001a;
+}
+
+.involve {
+  text-align: center;
+  background: linear-gradient(135deg, #3a0ca31a 0%, #7209b71a 100%);
+  border-left: 4px solid #f72585;
+  border-radius: 12px;
+  margin-top: 3rem;
+  padding: 2rem;
+  font-size: 1.15rem;
+  font-style: italic;
+}
+
+.dark-theme .involve {
+  background: linear-gradient(135deg, #3a0ca333 0%, #7209b733 100%);
+}
+
+@media (width <= 768px) {
+  .about-start {
+    padding: 2rem 1rem;
+  }
+
+  .about-us h1 {
+    font-size: 2.2rem;
+  }
+
+  .choose h2, .mission h2, .values h2 {
+    font-size: 1.6rem;
+  }
+
+  .values ul li {
+    padding: .6rem 1rem;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.about-us > * {
+  animation: .6s ease-out forwards fadeIn;
+}
+
+.about-us > :first-child {
+  animation-delay: .1s;
+}
+
+.about-us > :nth-child(2) {
+  animation-delay: .2s;
+}
+
+.choose {
+  animation-delay: .3s !important;
+}
+
+.mission {
+  animation-delay: .4s !important;
+}
+
+.values {
+  animation-delay: .5s !important;
+}
+
+.involve {
+  animation-delay: .6s !important;
+}
+
+footer {
+  background: #0f001ecc;
+  margin-top: 20px;
+}
+
+.footer-first {
+  padding: 35px;
+  display: flex;
+}
+
+.f-left {
+  color: #fff;
+  margin-left: 200px;
+  font-size: large;
+}
+
+.f-socials {
+  gap: 10px;
+  font-size: large;
+  display: flex;
+}
+
+.f-right {
+  margin-left: 300px;
+  padding: 18px;
+}
+
+.f-right a {
+  color: #fff;
+  font-size: medium;
+}
+
+.f-right ul {
+  gap: 10px;
+  display: flex;
+}
+
+.p-2 {
+  margin-left: 30px;
+}
+
+.f-socials a {
+  color: #fff;
+}
+
+.f-container p {
+  color: #fff;
+  margin: 0%;
+}
+
+.f-container p:nth-child(2) {
+  margin-top: 5px;
+}
+
+.p-1 li, .p-2 li {
+  margin-bottom: 5px;
+}
+</style>
+</head>
+<body>
+      <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">CodeCanvas</div>
+                <nav class="nav">
+                    <a href="/index.html#home" class="nav-link">Home</a>
+                    <a href="/index.html#browser" class="nav-link">Browse</a>
+                    <a href="/index.html#submit" class="nav-link">Submit</a>
+                    <a href="/about.html" class="nav-link">About</a>
+                    <a href="/index.html#reviews" class="nav-link">Reviews</a>
+                    <a href="/index.html#contact" class="nav-link">Contact Us</a>
+                    <a href="https://github.com/Varshitha713/CodeCanvas" class="btn-primary" target="_blank">
+                        <i class="fab fa-github"></i> GitHub
+                    </a>
+                    <button class="theme-toggle" id="darkModeToggle" aria-label="Toggle Theme">
+                        <span id="themeIcon">🌙</span>
+                    </button>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <!-- About us page  -->
+    <div id="about">
+        <div class="about-us">
+            <h1>About CodeCanvas 🌍✨</h1>
+            <p>CodeCanvas was born from a simple idea: creating a vibrant space where front-end developers at all levels could share their work, find inspiration, and grow together. We noticed that while there are many platforms for code sharing, there wasn't a dedicated community focused on celebrating the artistry and creativity in front-end development.</p>
+            
+            <div class="choose">
+                <h2>Why choose us</h2>
+                <p>Unlike generic coding platforms, CodeCanvas is specifically tailored for front-end developers who:</p>
+                <ul class="choose-list">
+                    <li>Value both functionality and aesthetics</li>
+                    <li>Want to showcase their projects in a design-friendly format</li>
+                    <li>Seek inspiration that balances technical excellence with visual appeal</li>
+                    <li>Appreciate constructive feedback from peers</li>
+                </ul>
+            </div>
+
+            <div class="mission">
+                <h2>Our Mission</h2>
+                <p>At CodeCanvas, we're on a mission to:</p>
+                <ul>
+                    <li>Democratize front-end inspiration by making amazing designs accessible to everyone</li>
+                    <li>Foster meaningful connections between developers worldwide</li>
+                    <li>Celebrate creativity in all its forms - from stunning animations to clever UI solutions</li>
+                    <li>Lower the barriers for newcomers to learn from real-world examples</li>
+                </ul>
+            </div>
+            <div class="values">
+                <h2>Our Values</h2>
+                <ul> <!-- Changed from <ui> to <ul> -->
+                    <li>✨ Creativity First - We celebrate innovative thinking</li>
+                    <li>🌱 Always Learning - Every project teaches us something new</li>
+                    <li>🤗 Community Focused - Your success is our success</li>
+                    <li>🔓 Open By Design - We believe in transparent, accessible development</li>
+                </ul> <!-- Changed from </ui> to </ul> -->
+            </div>
+            <div class="involve">
+                <p>CodeCanvas is more than a platform - it's a community. Contribute your projects, share feedback, or help us improve the platform. Together, we're painting the digital world one beautiful component at a time.</p>
+            </div>
+            <!-- footer -->
+            <footer>
+                <div>
+                    <div class="footer-first">
+                        <div class="f-left">
+                            <h2>CodeCanvas</h2>
+                            <ul class="f-socials">
+                                <div><a href="https://github.com/Varshitha713/CodeCanvas" target="_blank"><i class="fa-brands fa-github"></i></a></div>
+                                <div><a href="https://www.linkedin.com/in/varshitha-macha/" target="_blank"><i class="fa-brands fa-linkedin"></i></a></div>
+                                <div><a href="https://discord.com/users/1179807221329182780" target="_blank"><i class="fa-brands fa-discord"></i></a></div>
+                                <div><a href="#"><i class="fa-solid fa-envelope"></i></a></div>
+                          </ul>
+                        </div>
+                        <div class="f-right">
+                            <ul>
+                                <div class="p-1">
+                                  <li><a href="/index.html">Home</a></li>
+                                  <li><a href="/index.html#browse">Browse</a></li>
+                                  <li><a href="/index.html#submit">Submit</a></li>
+                                </div>
+                                <div class="p-2">
+                                  <li><a href="#">About</a></li>
+                                  <li><a href="/index.html#reviews">Reviews</a></li>
+                                  <li><a href="/index.html#contact">Contact Us</a></li>
+                                </div>
+                              </ul>
+                        </div>
+                    </div>
+                    <div class="f-container">
+                        <p>© 2025 CodeCanvas. Open source project for the developer community.</p>
+                        <p>Built with ❤️ for showcasing amazing front-end projects</p>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+    <!-- ending of about us page -->
+    <script>// Theme toggle functionality
+const darkModeToggle = document.getElementById('darkModeToggle');
+const themeIcon = document.getElementById('themeIcon');
+const body = document.body;
+// Check for saved theme preference or respect OS preference
+const savedTheme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+if (savedTheme === 'dark') {
+    body.classList.add('dark-theme');
+    themeIcon.textContent = "\u2600\uFE0F";
+}
+// Toggle theme on button click
+darkModeToggle.addEventListener('click', ()=>{
+    body.classList.toggle('dark-theme');
+    const isDark = body.classList.contains('dark-theme');
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    themeIcon.textContent = isDark ? "\u2600\uFE0F" : "\uD83C\uDF19";
+});
+
+</script>
+
+<script src="/about.cad4fa1f.js"></script></body></html>
