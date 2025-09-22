@@ -1,0 +1,10 @@
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;background:#0e0e1a;color:#fff;display:grid;place-items:center;min-height:100vh}
+.calc{background:#151528;border:1px solid #2a2a42;border-radius:16px;padding:16px;box-shadow:0 10px 30px rgba(0,0,0,.3);width:min(360px,92vw)}
+.display{width:100%;height:64px;border-radius:12px;border:1px solid #2a2a42;background:#0a0a14;color:#7dd3fc;font-size:28px;padding:12px 14px;margin-bottom:12px;text-align:right}
+.keys{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+button{appearance:none;border:none;border-radius:12px;padding:14px;font-size:18px;background:#1e1e35;color:#e5e7eb;cursor:pointer;transition:.15s ease;box-shadow:0 2px 0 #0a0a14}
+button:hover{filter:brightness(1.05)}button:active{transform:translateY(1px);box-shadow:0 1px 0 #0a0a14}
+.op{background:#23234a;color:#a5b4fc}.muted{background:#23233a;color:#94a3b8}
+.primary{grid-column:span 4;background:#6d28d9;color:#fff;font-weight:700}
+
+

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Basic Calculator</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="calc">
+    <input id="display" class="display" type="text" readonly />
+    <div class="keys">
+      <button data-k="7">7</button>
+      <button data-k="8">8</button>
+      <button data-k="9">9</button>
+      <button data-k="/" class="op">÷</button>
+
+      <button data-k="4">4</button>
+      <button data-k="5">5</button>
+      <button data-k="6">6</button>
+      <button data-k="*" class="op">×</button>
+
+      <button data-k="1">1</button>
+      <button data-k="2">2</button>
+      <button data-k="3">3</button>
+      <button data-k="-" class="op">−</button>
+
+      <button data-k="0">0</button>
+      <button data-k=".">.</button>
+      <button id="clear" class="muted">C</button>
+      <button data-k="+" class="op">+</button>
+
+      <button id="equals" class="primary">=</button>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
+
+
