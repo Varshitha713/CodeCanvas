@@ -8,7 +8,7 @@ Welcome to **CodeCanvas**, a vibrant community platform where developers from ar
   <img src="https://user-images.githubusercontent.com/74038190/212284115-f47cd8ff-2ffb-4b04-b5bf-4d1c14c0247f.gif" width="1000">
 </div>
 
-## About the Project 🌟
+## About the Project 🌟mamamamamamamamamaamamam
 
 CodeCanvas aims to be a go-to hub for front-end developers to display their work, discover new techniques, and foster a collaborative environment. We believe in the power of sharing and learning from each other, making front-end development more accessible and exciting for everyone.
 
