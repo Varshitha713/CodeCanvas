@@ -1114,16 +1114,249 @@ body.dark-theme .tag-badge {
             margin-right: 0.5rem;
           }
         }
+/* Footer Styles */
+.footer {
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    color: white;
+    text-align: center;
+    padding: 50px 20px 20px;
+    font-family: 'Inter', sans-serif;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
 
-        /* Footer */
-        .footer {
-            background: rgba(0, 0, 0, 0.8);
-            color: white;
-            text-align: center;
-            padding: 2rem 0;
-            margin-top: 3rem;
-        }
+/* Light theme footer: use white background with dark text to match navbar */
+body:not(.dark-theme) .footer {
+  background: #ffffff; /* white background in light mode */
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  color: #111; /* darker text for contrast */
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+}
 
+/* Dark theme footer */
+body.dark-theme .footer {
+    background: rgba(26, 20, 69, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    color: #e4e4f0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-logo {
+    font-size: 2.5rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 1rem;
+}
+
+.footer-tagline {
+    max-width: 600px;
+    margin: 0 auto 2rem;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    opacity: 0.9;
+}
+
+/* Light theme tagline */
+body:not(.dark-theme) .footer-tagline {
+  color: #555;
+}
+
+/* Social Links */
+.socials {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+    list-style: none;
+    padding: 0;
+}
+
+.socials li a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    color: white;
+    font-size: 1.3rem;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Light theme social icons */
+body:not(.dark-theme) .socials li a {
+  background: rgba(102, 126, 234, 0.08);
+  color: #667eea;
+  border: 1px solid rgba(102, 126, 234, 0.18);
+}
+
+/* Social hover effects */
+.socials li a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    transition: left 0.3s ease;
+    z-index: -1;
+}
+
+.socials li a:hover::before {
+    left: 0;
+}
+
+.socials li a:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+    color: white;
+}
+
+/* Light theme social hover */
+body:not(.dark-theme) .socials li a:hover {
+    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+}
+
+/* Horizontal Quick Links */
+.footer-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2.5rem;
+    list-style: none;
+    margin: 0 auto 2.5rem;
+    padding: 0;
+}
+
+.footer-links li a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 0.5rem 0;
+    position: relative;
+    transition: color 0.3s ease;
+    white-space: nowrap;
+}
+
+/* Light theme links */
+body:not(.dark-theme) .footer-links li a {
+  color: #333; /* stronger contrast on white background */
+}
+
+/* Footer brand styling for light mode: gradient text fill (text shows gradient only) */
+body:not(.dark-theme) .footer-logo {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  -webkit-background-clip: text;
+  background-clip: text; /* standard property for compatibility */
+  -webkit-text-fill-color: transparent; /* show background through text */
+  color: transparent; /* fallback */
+}
+
+/* Underline animation */
+.footer-links li a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 2px;
+    width: 0;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    transition: width 0.3s ease;
+}
+
+.footer-links li a:hover {
+    color: white;
+}
+
+/* Light theme link hover */
+body:not(.dark-theme) .footer-links li a:hover {
+    color: #333;
+}
+
+.footer-links li a:hover::after {
+    width: 100%;
+}
+
+/* Footer bottom */
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 1.5rem;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Light theme footer bottom */
+body:not(.dark-theme) .footer-bottom {
+    border-top: 1px solid rgba(102, 126, 234, 0.2);
+    color: #666;
+}
+
+.footer-bottom strong {
+    color: white;
+    font-weight: 600;
+}
+
+/* Light theme strong text */
+body:not(.dark-theme) .footer-bottom strong {
+    color: #333;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .footer {
+        padding: 3rem 1rem 1rem;
+    }
+    
+    .footer-logo {
+        font-size: 2rem;
+    }
+    
+    .footer-tagline {
+        font-size: 1rem;
+        padding: 0 1rem;
+    }
+    
+    .footer-links {
+        gap: 1.5rem;
+    }
+    
+    .socials {
+        gap: 1rem;
+    }
+    
+    .socials li a {
+        width: 40px;
+        height: 40px;
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-links {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .footer {
+        padding: 2rem 1rem 1rem;
+    }
+}
         /* Responsive design */
         @media (max-width: 768px) {
             .hero h1 {
@@ -1555,13 +1788,18 @@ body.dark-theme button:hover {
   color: white;
   padding: 10px;
   font-size: larger;
+  text-decoration: none; 
 }
 
 .footer-logo {
   font-size: 2rem;
   font-weight: 700;
-  background: white;
+  /* Gradient text fill for both light and dark themes */
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  -webkit-background-clip: text;
   background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent; /* fallback */
   margin: 10px;
 }
 
