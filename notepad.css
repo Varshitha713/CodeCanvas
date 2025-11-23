@@ -1,0 +1,284 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.theme-toggle {
+            background: transparent;
+            border: 2px solid var(--toggle-border);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.3s ease;
+            font-size: 1.2rem;
+            color: var(--toggle-icon);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            margin-right: 50px;
+}
+
+.theme-toggle:hover {
+    background: var(--toggle-hover);
+    transform: scale(1.1);
+}
+
+.theme-toggle span {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+:root {
+    --toggle-border: #ddd;
+    --toggle-icon: #333;
+    --toggle-hover: #f0f0f0;
+    --bg-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --text-color: black;
+    --bg-card: rgba(255, 255, 255, 0.95);
+    --text-card: #333;
+    --box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+    --bg-header: rgba(255, 255, 255, 0.95);
+    --header-border: rgba(255, 255, 255, 0.18);
+    --card-bg: rgba(255, 255, 255, 0.95);
+    --card-border: rgba(255, 255, 255, 0.18);
+    --card-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+    --card-hover-shadow: 0 20px 40px rgba(31, 38, 135, 0.5);
+    --nav-link-color: #333; 
+    --nav-link-hover-bg: rgba(102, 126, 234, 0.1);
+    --project-title-color: #333;
+    --placeholder-bg: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+    --placeholder-text: #666;
+}
+
+.dark-theme {
+    --toggle-border: #888;
+    --toggle-icon: #f9f9f9;
+    --toggle-hover: #333;
+    --bg-gradient: linear-gradient(135deg, #1a1445 0%, #2c1d5c 100%);
+    --text-color: #e4e4f0;
+    --bg-card: rgba(30, 25, 60, 0.9); 
+    --text-card: #eee;
+    --box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    --bg-header: rgba(30, 25, 60, 0.9); 
+    --header-border: rgba(255, 255, 255, 0.05);
+    --card-bg: rgba(30, 25, 60, 0.9);
+    --card-border: rgba(255, 255, 255, 0.05);
+    --card-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    --card-hover-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+    --nav-link-color: #f1f1f1;
+    --nav-link-hover-bg: rgba(255, 255, 255, 0.1);
+    --project-title-color: #ffffff;
+    --placeholder-bg: linear-gradient(135deg, #2a2d3e, #3b3f59);  /* deep bluish-purple tone */
+    --placeholder-text: #ddd;
+}
+
+.header {
+    background: var(--bg-header);
+    backdrop-filter: blur(10px);
+    box-shadow: var(--box-shadow);
+    border-bottom: 1px solid var(--header-border);
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    transition: background 0.3s, border-bottom 0.3s, box-shadow 0.3s;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.logo {
+    font-size: 2rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-left: 50px;
+}
+
+.nav {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.nav-link {
+    color: var(--nav-link-color);
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.nav-link:hover {
+    background: var(--nav-link-hover-bg);
+    transform: translateY(-2px);
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg-gradient);
+    color: var(--text-color);
+    min-height: 100vh;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+main {
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+.dark-theme .add_notes {
+    background: inherit;
+    backdrop-filter: blur(14px);
+    border-radius: 16px;
+    padding: 25px;
+    margin-top: 60px;
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    box-shadow: 0 0 18px rgba(255, 255, 255, 0.75); 
+}
+
+.add_notes, .mynotes {
+    background: inherit;
+    backdrop-filter: blur(14px);
+    border-radius: 16px;
+    padding: 25px;
+    margin-top: 60px;
+    border: 2px solid rgba(255, 255, 255, 0.7); 
+    box-shadow: 0 0 14px rgba(255, 255, 255, 0.6);
+}
+
+.add_notes h2 .add, .mynotes h2 img{
+    width: 25px;
+    height: 25px;
+    filter: none;
+}
+
+.mynotes h2 img{
+    margin-right: 5px;
+    transform: translateY(2px);
+}
+
+.dark-theme .add_notes h2 .add, .dark-theme .mynotes h2 img{
+    filter: invert(100%) brightness(100%);
+}
+
+.add_notes h2{
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--text-color);
+}
+
+.mynotes h2{
+    margin-bottom: 15px;
+}
+.add_notes label{
+    font-size: 20px;
+    letter-spacing: 0.5px;
+}
+
+.add_notes input:focus, .add_notes textarea:focus{
+    border-color: var(--primary-color);
+    box-shadow: 0 0 6px rgba(30, 144, 255, 0.5);
+    outline: none;
+}
+
+.add_notes #title{
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    margin-top: 10px;
+}
+
+.add_notes textarea{
+    width: 100%;
+    height: 150px;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family:'Inter', sans-serif;
+    resize: vertical;
+    margin-top: 10px;
+}
+
+.add_notes button {
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    background: transparent;
+    color: var(--text-color);
+    border: 1.5px solid rgba(255, 255, 255, 0.6);
+    transition: all 0.3s ease;
+}
+
+.add_notes button:hover {
+  border-color: #000;
+  background: rgba(0, 0, 0, 0.05);
+  transform: translateY(-1px);
+}
+
+.notes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.note-card {
+    background: var(--card-bg);
+    padding: 18px;
+    border-radius: 12px;
+    box-shadow: var(--card-shadow);
+    border: 1px solid var(--card-border);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.note-card h3 {
+    margin-bottom: 10px;
+    color: var(--text-color);
+}
+
+.note-card p {
+    color: var(--text-color);
+    white-space: pre-wrap;
+}
+
+.note-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.delete-btn {
+    background: transparent;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.delete-btn:hover {
+    transform: scale(1.2);
+    color: red;
+}
