@@ -1585,3 +1585,166 @@ body.dark-theme button:hover {
   font-size: 14px;
   gap: 50px;
 }
+
+/* Main Containers */
+.add_notes, .mynotes {
+    background: inherit;
+    backdrop-filter: blur(14px);
+    border-radius: 16px;
+    padding: 25px;
+    margin-top: 60px;
+    border: 2px solid rgba(255, 255, 255, 0.7); 
+    box-shadow: 0 0 14px rgba(255, 255, 255, 0.6);
+}
+
+.dark-theme .add_notes {
+    background: inherit;
+    backdrop-filter: blur(14px);
+    border-radius: 16px;
+    padding: 25px;
+    margin-top: 60px;
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    box-shadow: 0 0 18px rgba(255, 255, 255, 0.75); 
+}
+
+/* Headings and Icons */
+.add_notes h2 .add, .mynotes h2 .add{
+    width: 25px;
+    height: 25px;
+    filter: brightness(80%);
+}
+
+.mynotes h2 img{
+    margin-right: 5px;
+    transform: translateY(2px);
+}
+
+.dark-theme .add_notes h2 .add, .dark-theme .mynotes h2 .add{
+    filter: invert(100%) brightness(100%);
+}
+
+.dark-theme .add_notes input,
+.dark-theme .add_notes textarea {
+    color: white !important;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3); 
+}
+
+.dark-theme .add_notes input::placeholder,
+.dark-theme .add_notes textarea::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.add_notes h2{
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--text-color);
+}
+
+.mynotes h2{
+    margin-bottom: 15px;
+}
+
+/* Form Inputs */
+.add_notes label{
+    font-size: 20px;
+    letter-spacing: 0.5px;
+}
+
+.add_notes input:focus, .add_notes textarea:focus{
+    border-color: var(--primary-color);
+    box-shadow: 0 0 6px rgba(30, 144, 255, 0.5);
+    outline: none;
+}
+
+.add_notes #title{
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    margin-top: 10px;
+}
+
+.add_notes textarea{
+    width: 100%;
+    height: 150px;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family:'Inter', sans-serif;
+    resize: vertical;
+    margin-top: 10px;
+}
+
+/* Note Cards */
+.notes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+
+    max-height: 350px; /* Limits the height (adjust this number as you like) */
+    overflow-y: auto;  /* Shows scrollbar when content exceeds max-height */
+    padding-right: 10px; /* Prevents text from hitting the scrollbar */
+    padding-bottom: 10px;
+}
+
+.note-card {
+    background: var(--card-bg);
+    padding: 18px;
+    border-radius: 12px;
+    box-shadow: var(--card-shadow);
+    border: 1px solid var(--card-border);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.note-card h3 {
+    margin-bottom: 10px;
+    color: var(--text-color);
+}
+
+.note-card p {
+    color: var(--text-color);
+    white-space: pre-wrap;
+}
+
+.note-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Edit and Delete Buttons */
+.delete-btn {
+    background: transparent;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.delete-btn:hover {
+    transform: scale(1.2);
+    color: red;
+}
+
+.edit-btn {
+    background: transparent;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: 0.2s;
+    margin-right: 10px; 
+}
+
+.edit-btn:hover {
+    transform: scale(1.2);
+    color: #4facfe; 
+}

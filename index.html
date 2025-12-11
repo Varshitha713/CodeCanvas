@@ -31,7 +31,7 @@
           <a href="#about" class="nav-link">About</a>
           <a href="#reviews" class="nav-link">Reviews</a>
           <a href="#contact" class="nav-link">Contact Us</a>
-          <a href="notepad.html" class="nav-link" target="_self">Keep Notes</a>
+          <a href="#notepad" class="nav-link">Keep Notes</a>
           <a href="https://github.com/Varshitha713/CodeCanvas" class="btn-primary" target="_blank">
             <i class="fab fa-github"></i> GitHub
           </a>
@@ -132,6 +132,28 @@
           <i class="fas fa-search"></i>
           <h3>No projects found</h3>
           <p>Try adjusting your filters or contribute the first project!</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="notepad-section fade-in" id="notepad">
+      <div class="container">
+        <h2 class="section-title fade-in">Keep Notes</h2>
+        
+        <div style="display: flex; gap: 40px; flex-wrap: wrap;">
+          
+          <div id="mynotes" class="mynotes" style="flex: 1; min-width: 300px;">
+                <h2><img src="assets/list.png" class="add">My Notes</h2>
+                <div id="notesContainer" class="notes-grid"></div>
+            </div>
+            <div id="addnotes" class="add_notes" style="flex: 1; min-width: 300px;">
+                <h2><img src="assets/addition.png" class="add">Add Notes</h2>
+                <label for="title">Title:</label><br>
+                <input type="text" id="title" name="title" placeholder="Title of the notes"/><br><br>
+                <label for="content">Content:</label><br>
+                <textarea id="content" name="content" rows="10" cols="50" placeholder="Add your content"></textarea><br><br>
+                <div class="filter-buttons"><button onclick="saveNote()" class="btn-primary">Save Note</button></div>
+            </div>
         </div>
       </div>
     </section>
