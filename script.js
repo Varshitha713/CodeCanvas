@@ -643,14 +643,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   faders.forEach(fade => observer.observe(fade));
 });
-entries.forEach((entry, index) => {
-  if (entry.isIntersecting) {
-    setTimeout(() => {
-      entry.target.classList.add('animate');
-    }, index * 100); // 100ms delay between cards
-    observer.unobserve(entry.target);
-  }
-});
 
 
   const reviewSwiper = new Swiper(".review-swiper", {
@@ -665,3 +657,150 @@ entries.forEach((entry, index) => {
     },
     speed: 700, // smooth transition
   });
+
+/* =========================================
+   NOTEPAD INTEGRATION
+   ========================================= */
+
+// Notepad State
+let editIndex = -1;
+
+// Notepad Functions
+function saveNote() {
+    const titleInput = document.getElementById("title");
+    const contentInput = document.getElementById("content");
+    const saveBtn = document.querySelector(".add_notes button");
+
+    const title = titleInput.value.trim();
+    const content = contentInput.value.trim();
+
+    if (!title || !content) {
+        alert("Please fill both Title and Content!");
+        return;
+    }
+
+    const note = { title, content };
+    let notes = JSON.parse(localStorage.getItem("notes")) || [];
+
+    if (editIndex === -1) {
+        // Add new note
+        notes.push(note);
+    } else {
+        // Update existing note
+        notes[editIndex] = note;
+        editIndex = -1;
+        saveBtn.innerText = "Save Note";
+    }
+
+    localStorage.setItem("notes", JSON.stringify(notes));
+    displayNotes();
+
+    // Clear inputs
+    titleInput.value = "";
+    contentInput.value = "";
+    
+    // Clear drafts
+    localStorage.removeItem("draft_title");
+    localStorage.removeItem("draft_content");
+}
+
+function editNote(index) {
+    let notes = JSON.parse(localStorage.getItem("notes")) || [];
+    const note = notes[index];
+    const saveBtn = document.querySelector(".add_notes button");
+
+    document.getElementById("title").value = note.title;
+    document.getElementById("content").value = note.content;
+
+    editIndex = index;
+    saveBtn.innerText = "Update Note";
+
+    document.getElementById("addnotes").scrollIntoView({ behavior: "smooth" });
+}
+
+function displayNotes() {
+    const notes = JSON.parse(localStorage.getItem("notes")) || [];
+    const container = document.getElementById("notesContainer");
+
+    if (!container) return; 
+
+    container.innerHTML = "";
+
+    notes.forEach((note, index) => {
+        const card = document.createElement("div");
+        card.classList.add("note-card");
+
+        // Updated with Font Awesome icons
+        card.innerHTML = `
+            <div class="note-header">
+                <h3>${note.title}</h3>
+                <div>
+                    <button class="edit-btn" onclick="editNote(${index})" title="Edit Note">
+                        <i class="fas fa-pen"></i>
+                    </button>
+                    <button class="delete-btn" onclick="deleteNote(${index})" title="Delete Note">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                </div>
+            </div>
+            <p>${note.content}</p>
+        `;
+
+        container.appendChild(card);
+    });
+}
+
+function deleteNote(index) {
+    let notes = JSON.parse(localStorage.getItem("notes")) || [];
+    const saveBtn = document.querySelector(".add_notes button");
+
+    if (index === editIndex) {
+        editIndex = -1;
+        if(saveBtn) saveBtn.innerText = "Save Note";
+        document.getElementById("title").value = "";
+        document.getElementById("content").value = "";
+    } else if (index < editIndex) {
+        editIndex--;
+    }
+
+    notes.splice(index, 1);
+    localStorage.setItem("notes", JSON.stringify(notes));
+    displayNotes();
+}
+
+/* =========================================
+   NOTEPAD INITIALIZATION & EVENTS
+   ========================================= */
+
+document.addEventListener("DOMContentLoaded", () => {
+    // 1. Load Drafts
+    const draftTitle = localStorage.getItem("draft_title") || "";
+    const draftContent = localStorage.getItem("draft_content") || "";
+    const titleInput = document.getElementById("title");
+    const contentInput = document.getElementById("content");
+
+    if (editIndex === -1 && titleInput && contentInput) {
+        titleInput.value = draftTitle;
+        contentInput.value = draftContent;
+    }
+
+    // 2. Display Notes
+    displayNotes();
+
+    // 3. Attach Input Listeners for Auto-Saving Drafts
+    if (titleInput) {
+        titleInput.addEventListener("input", () => {
+            if (editIndex === -1) {
+                localStorage.setItem("draft_title", titleInput.value);
+            }
+        });
+    }
+
+    if (contentInput) {
+        contentInput.addEventListener("input", () => {
+            if (editIndex === -1) {
+                localStorage.setItem("draft_content", contentInput.value);
+            }
+        });
+    }
+});
